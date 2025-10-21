@@ -75,11 +75,11 @@ p { line-height: 1.9; }
     height: 100%;
 }
 
-.tm-bg-right { background-color: rgba(0,0,0,0.5); }
+.tm-bg-right { background-color: rgba(0, 0, 0, 0.628); }
 
 .tm-bg-left {
-    border-right: 230px solid rgba(0,0,0,0.5);
-    border-top: 100vh solid transparent;
+    border-right: 230px solid rgba(0, 0, 0, 0.628);
+    border-top: 200vh solid transparent;
 }
 
 .tm-bg-controls-wrapper {
