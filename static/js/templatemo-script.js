@@ -6,7 +6,9 @@ const initBg = (autoplay = true) => {
 
     if(!autoplay) {
       $.backstretch('pause');  
-    }    
+    }  
+
+
 }
 
 const setBg = id => {

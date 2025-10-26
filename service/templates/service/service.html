@@ -6,17 +6,25 @@
     <div class="tm-col-left"></div>
     <main class="tm-col-right">
       <section class="tm-content" style="text-align: left;" dir="ltr">
-        {% for service in services %}
-          <div class="media my-3 mb-5 tm-service-media tm-service-media-img-l">
-            <img src="{{ service.lable.url }}" alt="Image" class="tm-service-img" />
-            <div class="media-body tm-service-text">
-              <h2 class="mb-4 tm-content-title">{{ service.name }}</h2>
-              <p>{{ service.discription }}</p>
-              <br />
-              <hr class="mb-5" />
+          {% for service in services %}
+            <div class="media my-3 mb-5 tm-service-media tm-service-media-img-l">
+              
+              <div class="media-body tm-service-text" style="direction: rtl; text-align: right;" >
+                <br>
+                <h2 class="mb-4 tm-content-title" >{{ service.name }}</h2>
+                <p>{{ service.discription }}</p>
+                <br /><br /><br /><br />
+              </div>
+            <img src="{{ service.lable.url }}" alt="Image" class="tm-service-img"
+                  style="width: 370px; height: 230px; overflow: hidden; border-radius: 12px; 
+                          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); margin: 20px auto;" />
+
+
             </div>
-          </div>
-        {% endfor %}
+
+            <!-- خط جداکننده کامل در سطح بلوک اصلی -->
+            <hr class="tm-full-hr mb-5" />
+          {% endfor %}
       </section>
     </main>
   </div>
@@ -30,4 +38,9 @@
       </ul>
     </div>
   </div>
+
+
+
+
+
 {% endblock %}
