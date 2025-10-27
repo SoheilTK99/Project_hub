@@ -12,8 +12,9 @@
               <div class="media-body tm-service-text" style="direction: rtl; text-align: right;" >
                 <br>
                 <h2 class="mb-4 tm-content-title" >{{ service.name }}</h2>
-                <p>{{ service.discription }}</p>
-                <br /><br /><br /><br />
+                <p>{{ service.short_discription }}</p>
+                <a href="{% url 'service_detail' service.pk %}" class="btn btn-primary">بازدید</a>
+                
               </div>
             <img src="{{ service.lable.url }}" alt="Image" class="tm-service-img"
                   style="width: 370px; height: 230px; overflow: hidden; border-radius: 12px; 

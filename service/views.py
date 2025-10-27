@@ -1,9 +1,25 @@
-from django.conf import settings
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Service
 
+
+
 def service_list(request):
-    qs = Service.objects.all()
+    services = Service.objects.all()
+    return render(request, "service/service.html", {"services": services})
 
 
-    return render(request, "service/service.html", {"services": qs})
+def service_detail(request, pk):
+    service = get_object_or_404(Service, pk=pk)
+    
+    # لیست تمام تصاویر
+    images = [
+        service.image_1, service.image_2, service.image_3, service.image_4,
+        service.image_5, service.image_6, service.image_7, service.image_8
+    ]
+    # فقط تصاویری که وجود دارن
+    images = [img for img in images if img]
+
+    return render(request, "service/service_detail.html", {
+        "service": service,
+        "images": images  # لیست تصاویر
+    })
