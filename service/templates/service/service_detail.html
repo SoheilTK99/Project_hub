@@ -1,154 +1,296 @@
 {% extends 'base.html' %}
+{% load static %}
+{% block title %}
+  {{ service.name }} | جزییات سرویس
+{% endblock %}
+
 {% block content %}
-  {% load static %}
+  <style>
+    /* --- Service Detail (scoped) -------------------------------------------- */
+    .srv-d-wrap {
+      direction: rtl;
+      text-align: right;
+      color: #e9eef6;
+    }
+    .srv-d-container {
+      width: min(1200px, 92vw);
+      margin-inline: auto;
+      padding: 16px 0;
+    }
+    
+    /* رنگ‌ها فقط برای این بخش—با تم خودت می‌تونی عوض کنی */
+    :root {
+      --srvd-border: #223148;
+      --srvd-muted: #9aa6b2;
+      --srvd-badge: #cfe1ff;
+    }
+    
+    /* هِرو */
+    .srv-d-hero {
+      display: grid;
+      gap: 24px;
+      grid-template-columns: 1.2fr 2fr;
+      background: linear-gradient(180deg, #101722, #0c1118);
+      border: 1px solid var(--srvd-border);
+      border-radius: 16px;
+      padding: 16px;
+    }
+    @media (max-width: 900px) {
+      .srv-d-hero {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .srv-d-poster {
+      aspect-ratio: 4/3;
+      background: #0b0f16;
+      border: 1px solid var(--srvd-border);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    .srv-d-poster img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    
+    .srv-d-title-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .srv-d-title {
+      margin: 6px 0;
+      font-weight: 900;
+      letter-spacing: -0.3px;
+      font-size: clamp(22px, 4.2vw, 34px);
+    }
+    .srv-d-badge {
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--srvd-border);
+      background: #0e151e;
+      color: var(--srvd-badge);
+    }
+    .srv-d-muted {
+      color: var(--srvd-muted);
+    }
+    
+    /* مشخصات کلیدی */
+    .srv-d-kv {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      margin: 12px 0 8px;
+    }
+    .srv-d-kv .it {
+      border: 1px solid var(--srvd-border);
+      background: #0e141d;
+      padding: 10px 12px;
+      border-radius: 12px;
+      font-size: 14px;
+      color: #cbd6e7;
+    }
+    .srv-d-kv .k {
+      color: var(--srvd-muted);
+      font-size: 12px;
+      display: block;
+      margin-bottom: 6px;
+    }
+    
+    /* توضیح بلند */
+    .srv-d-long {
+      border: 1px dashed var(--srvd-border);
+      background: #0c1016;
+      padding: 14px;
+      border-radius: 12px;
+      color: #c6d1e3;
+      line-height: 1.9;
+    }
+    
+    /* گالری */
+    .srv-d-gallery {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      margin-top: 12px;
+    }
+    .srv-d-thumb {
+      aspect-ratio: 16/10;
+      border: 1px solid var(--srvd-border);
+      border-radius: 12px;
+      overflow: hidden;
+      background: #0b0f16;
+      cursor: pointer;
+    }
+    .srv-d-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    
+    /* لایت‌باکس */
+    .srv-d-lb {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      z-index: 9999;
+    }
+    .srv-d-lb.open {
+      display: flex;
+    }
+    .srv-d-lb img {
+      max-width: min(1100px, 92vw);
+      max-height: 80vh;
+      border-radius: 16px;
+      border: 1px solid #334;
+    }
+    .srv-d-lb .close {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      font-size: 14px;
+      border: 1px solid var(--srvd-border);
+      background: #0d141d;
+      color: #eaeef6;
+      padding: 8px 12px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    
+    /* لینک بازگشت */
+    .srv-d-back {
+      display: inline-block;
+      margin-bottom: 10px;
+      text-decoration: none;
+    }
+  </style>
 
-  <div class="container-fluid px-4 py-5">
-    <div class="row justify-content-center">
-      <div class="col-12" style="max-width: 1600px;">
-        <!-- کادر بزرگ -->
-        <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
-          <div class="card-body p-4 p-md-5">
-            <!-- گالری تصاویر -->
-            {% if images %}
-              <h4 class="text-center mb-4 text-primary">گالری تصاویر پروژه</h4>
-              <div class="row g-3 mb-5">
-                {% for img in images %}
-                  <div class="col-6 col-md-4 col-lg-3">
-                    <a href="{{ img.url }}" target="_blank"><img src="{{ img.url }}" class="img-fluid rounded shadow gallery-img" alt="تصویر پروژه" /></a>
-                  </div>
-                {% endfor %}
-              </div>
-            {% endif %}
+  <div class="srv-d-wrap">
+    <div class="srv-d-container">
+      <a href="{% url 'service:list' %}" class="srv-d-back srv-d-muted">← بازگشت به لیست</a>
 
-            <!-- عنوان + پوستر -->
-            <div class="text-center mb-5">
-              <h1 class="display-5 fw-bold text-dark">{{ service.name }}</h1>
-              <a href="{{ service.link }}" target="_blank" class="btn btn-success btn-lg mt-3">بازدید از سایت</a>
-            </div>
-
-            <!-- توضیحات کوتاه -->
-            {% if service.short_discription %}
-              <div class="alert alert-light border-start border-primary border-4 mb-4">
-                <p class="lead text-muted mb-0">{{ service.short_discription }}</p>
-              </div>
-            {% endif %}
-
-            <!-- توضیحات بلند (قابل گسترش) -->
-            {% if service.long_discription %}
-              <div class="card border-0 shadow-sm mb-4">
-                <div class="card-header bg-gradient bg-primary text-white">
-                  <button class="btn btn-link text-white text-decoration-none fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#longDesc">توضیحات کامل پروژه</button>
-                </div>
-                <div class="collapse" id="longDesc">
-                  <div class="card-body text-justify bg-light">{{ service.long_discription|linebreaks }}</div>
-                </div>
-              </div>
-            {% endif %}
-
-            <!-- اطلاعات کلی -->
-            <div class="row g-3 mb-4 text-center">
-              <div class="col-sm-4">
-                <div class="p-3 bg-gradient bg-info text-white rounded shadow-sm">
-                  <small class="d-block">دسته‌بندی</small>
-                  <p class="mb-0 fw-bold fs-5">{{ service.category }}</p>
-                </div>
-              </div>
-              <div class="col-sm-4">
-                <div class="p-3 bg-gradient bg-warning text-dark rounded shadow-sm">
-                  <small class="d-block">زمان تحویل</small>
-                  <p class="mb-0 fw-bold fs-5">{{ service.delivery_time|default:'—' }}</p>
-                </div>
-              </div>
-              <div class="col-sm-4">
-                <div class="p-3 bg-gradient {% if 'فعال' in service.status|default:'' %}
-                    bg-success text-white
-                  {% else %}
-                    bg-secondary text-white
-                  {% endif %} rounded shadow-sm">
-                  <small class="d-block">وضعیت</small>
-                  <p class="mb-0 fw-bold fs-5">{{ service.status|default:'نامشخص' }}</p>
-                </div>
-              </div>
-            </div>
-
-            <!-- تکنولوژی‌ها -->
-            {% if service.frontend or service.backend or service.hosting or service.authentication %}
-              <div class="card border-0 shadow-sm mb-4">
-                <div class="card-header bg-dark text-white">
-                  <h5 class="mb-0">تکنولوژی‌های استفاده شده</h5>
-                </div>
-                <div class="card-body bg-light">
-                  <div class="row text-center">
-                    {% if service.frontend %}
-                      <div class="col-6 col-md-3 mb-3">
-                        <span class="badge bg-info text-dark w-100 p-2 fs-6">Frontend: {{ service.frontend }}</span>
-                      </div>
-                    {% endif %}
-                    {% if service.backend %}
-                      <div class="col-6 col-md-3 mb-3">
-                        <span class="badge bg-warning text-dark w-100 p-2 fs-6">Backend: {{ service.backend }}</span>
-                      </div>
-                    {% endif %}
-                    {% if service.hosting %}
-                      <div class="col-6 col-md-3 mb-3">
-                        <span class="badge bg-secondary w-100 p-2 fs-6">Hosting: {{ service.hosting }}</span>
-                      </div>
-                    {% endif %}
-                    {% if service.authentication %}
-                      <div class="col-12 mb-3">
-                        <span class="badge bg-danger w-100 p-2 fs-6">Authentication: {{ service.authentication }}</span>
-                      </div>
-                    {% endif %}
-                  </div>
-                </div>
-              </div>
-            {% endif %}
-
-            <!-- PageSpeed -->
-            {% if service.pagespeed %}
-              <div class="text-center mb-5 p-4 bg-white rounded shadow-sm">
-                <h5 class="mb-3 text-success">امتیاز PageSpeed</h5>
-                <div class="progress rounded-pill" style="height: 40px;">
-                  <div class="progress-bar bg-success fw-bold fs-5" style="width: {{ service.pagespeed }}%">{{ service.pagespeed|floatformat:3 }} / 100</div>
-                </div>
-              </div>
-            {% endif %}
-
-            <!-- دکمه برگشت -->
-            <div class="text-center mt-5">
-              <a href="{% url 'service' %}" class="btn btn-outline-primary btn-lg px-5">برگشت به لیست پروژه‌ها</a>
-            </div>
-          </div>
+      <!-- هرو: پوستر + اطلاعات اصلی -->
+      <section class="srv-d-hero">
+        <div class="srv-d-poster">
+          {% if service.lable %}
+            <img src="{{ service.lable.url }}" alt="{{ service.name }}" />
+          {% else %}
+            <img src="{% static 'img/placeholder-4x3.webp' %}" alt="{{ service.name }}" />
+          {% endif %}
         </div>
-        <!-- پایان کادر بزرگ -->
-      </div>
+
+        <div>
+          <div class="srv-d-title-row">
+            <h1 class="srv-d-title">{{ service.name }}</h1>
+            {% if service.category %}
+              <span class="srv-d-badge">{{ service.category }}</span>
+            {% endif %}
+          </div>
+
+          {% if service.short_discription %}
+            <p class="srv-d-muted" style="margin:6px 0 12px">{{ service.short_discription }}</p>
+          {% endif %}
+
+          <div class="srv-d-kv">
+            {% if service.status %}
+              <div class="it">
+                <span class="k">وضعیت</span>{{ service.status }}
+              </div>
+            {% endif %}
+            {% if service.pagespeed %}
+              <div class="it">
+                <span class="k">PageSpeed</span>{{ service.pagespeed }}
+              </div>
+            {% endif %}
+            {% if service.delivery_time %}
+              <div class="it">
+                <span class="k">زمان تحویل</span>{{ service.delivery_time }}
+              </div>
+            {% endif %}
+            {% if service.frontend %}
+              <div class="it">
+                <span class="k">فرانت‌اند</span>{{ service.frontend }}
+              </div>
+            {% endif %}
+            {% if service.backend %}
+              <div class="it">
+                <span class="k">بک‌اند</span>{{ service.backend }}
+              </div>
+            {% endif %}
+            {% if service.hosting %}
+              <div class="it">
+                <span class="k">هاستینگ</span>{{ service.hosting }}
+              </div>
+            {% endif %}
+            {% if service.authentication %}
+              <div class="it">
+                <span class="k">احراز هویت</span>{{ service.authentication }}
+              </div>
+            {% endif %}
+            {% if service.link %}
+              <div class="it">
+                <span class="k">لینک</span>
+                <a href="{{ service.link }}" target="_blank" rel="noopener" style="color:#9ec5ff">{{ service.link }}</a>
+              </div>
+            {% endif %}
+          </div>
+
+          {% if service.long_discription %}
+            <div class="srv-d-long">{{ service.long_discription }}</div>
+          {% endif %}
+        </div>
+      </section>
+
+      <!-- گالری تصاویر -->
+      {% if images %}
+        <h3 style="margin:16px 0 10px">گالری تصاویر</h3>
+        <div class="srv-d-gallery" id="srv-d-gallery">
+          {% for img in images %}
+            <figure class="srv-d-thumb">
+              <img src="{{ img.url }}" alt="{{ service.name }} - {{ forloop.counter }}" loading="lazy" />
+            </figure>
+          {% endfor %}
+        </div>
+
+        <!-- Lightbox -->
+        <div class="srv-d-lb" id="srv-d-lb">
+          <button class="close" type="button" aria-label="بستن">بستن</button>
+          <img src="" alt="" />
+        </div>
+      {% endif %}
     </div>
   </div>
 
-  <style>
+  <script>
+    /* --- Lightbox ------------------------------------------------------------ */
+    ;(() => {
+      const lb = document.getElementById('srv-d-lb')
+      const lbImg = lb?.querySelector('img')
+      const gallery = document.getElementById('srv-d-gallery')
     
-    .gallery-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    .gallery-item {
-      flex: 0 0 calc(50% - 1.5rem); /* موبایل: 2 ستون */
-      max-width: calc(50% - 1.5rem);
-    }
+      gallery?.addEventListener('click', (e) => {
+        const fig = e.target.closest('.srv-d-thumb')
+        if (!fig) return
+        lbImg.src = fig.querySelector('img').src
+        lb.classList.add('open')
+      })
     
-    .gallery-img {
-      width: 300px;
-      height: 300px;
-      object-fit: cover;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-      transition: all 0.3s ease;
-      margin-bottom: 15px;
-    }
-    .gallery-img:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
-    }
-  </style>
+      lb?.addEventListener('click', (e) => {
+        if (e.target === lb || e.target.classList.contains('close')) lb.classList.remove('open')
+      })
+    
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') lb.classList.remove('open')
+      })
+    })()
+  </script>
 {% endblock %}

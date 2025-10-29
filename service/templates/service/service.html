@@ -13,7 +13,7 @@
                 <br>
                 <h2 class="mb-4 tm-content-title" >{{ service.name }}</h2>
                 <p>{{ service.short_discription }}</p>
-                <a href="{% url 'service_detail' service.pk %}" class="btn btn-primary">بازدید</a>
+                <a href="{% url 'service:detail' service.pk %}" class="btn btn-primary">بازدید</a>
                 
               </div>
             <img src="{{ service.lable.url }}" alt="Image" class="tm-service-img"
