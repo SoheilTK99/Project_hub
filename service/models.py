@@ -7,7 +7,7 @@ class Service(models.Model):
 
     name = models.CharField(("نام وبسایت"), max_length=20) 
     short_discription = models.TextField((" توضیحات کوتاه "), max_length=100, null=True, blank=True)
-    long_discription = models.TextField((" توضیحات بلند "), max_length=300, null=True, blank=True)
+    long_discription = models.TextField((" توضیحات بلند "), null=True, blank=True)
     category = models.CharField(("دسته بندی"), max_length=20)
     lable = models.ImageField(("پوستر"),upload_to='image/', null=True, blank=True)
     link = models.CharField(("لینک"),max_length=50)

@@ -13,7 +13,7 @@
       color: #e9eef6;
     }
     .srv-d-container {
-      width: min(1200px, 92vw);
+      width: min(1300px, 92vw);
       margin-inline: auto;
       padding: 16px 0;
     }
@@ -29,12 +29,24 @@
     .srv-d-hero {
       display: grid;
       gap: 24px;
-      grid-template-columns: 1.2fr 2fr;
       background: linear-gradient(180deg, #101722, #0c1118);
       border: 1px solid var(--srvd-border);
       border-radius: 16px;
       padding: 16px;
+      margin-bottom: 15px;
     }
+
+    .srv-d-hero-2{
+      display: grid;
+      gap: 24px;
+      background: linear-gradient(180deg, #101722, #0c1118);
+      border: 1px solid var(--srvd-border);
+      border-radius: 16px;
+      padding: 16px;
+      margin-bottom: 15px;
+    }
+
+
     @media (max-width: 900px) {
       .srv-d-hero {
         grid-template-columns: 1fr;
@@ -178,15 +190,29 @@
     <div class="srv-d-container">
       <a href="{% url 'service:list' %}" class="srv-d-back srv-d-muted">← بازگشت به لیست</a>
 
+      <!-- گالری تصاویر (فقط یک سوییپر) -->
+      <section class="srv-d-hero-2">
+        {% if images %}
+          <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+              {% for img in images %}
+                <div class="swiper-slide">
+                  <img src="{{ img.url }}" alt="{{ service.name }} - {{ forloop.counter }}" loading="lazy">
+                </div>
+              {% endfor %}
+            </div>
+
+            <!-- ناوبری و پیجینیشن اختیاری -->
+            <div class="swiper-pagination"></div>
+          </div>
+        {% endif %}
+      </section>
+
+
+
       <!-- هرو: پوستر + اطلاعات اصلی -->
       <section class="srv-d-hero">
-        <div class="srv-d-poster">
-          {% if service.lable %}
-            <img src="{{ service.lable.url }}" alt="{{ service.name }}" />
-          {% else %}
-            <img src="{% static 'img/placeholder-4x3.webp' %}" alt="{{ service.name }}" />
-          {% endif %}
-        </div>
+
 
         <div>
           <div class="srv-d-title-row">
@@ -236,8 +262,13 @@
                 <span class="k">احراز هویت</span>{{ service.authentication }}
               </div>
             {% endif %}
+           <span></span>
+           <span></span>
+           <span></span>
+           <span></span>
+           <span></span>
             {% if service.link %}
-              <div class="it">
+              <div class="it" style= "font-size: 18px; font-weight: 500;">
                 <span class="k">لینک</span>
                 <a href="{{ service.link }}" target="_blank" rel="noopener" style="color:#9ec5ff">{{ service.link }}</a>
               </div>
@@ -250,23 +281,14 @@
         </div>
       </section>
 
-      <!-- گالری تصاویر -->
-      {% if images %}
-        <h3 style="margin:16px 0 10px">گالری تصاویر</h3>
-        <div class="srv-d-gallery" id="srv-d-gallery">
-          {% for img in images %}
-            <figure class="srv-d-thumb">
-              <img src="{{ img.url }}" alt="{{ service.name }} - {{ forloop.counter }}" loading="lazy" />
-            </figure>
-          {% endfor %}
-        </div>
+      
+      
 
-        <!-- Lightbox -->
-        <div class="srv-d-lb" id="srv-d-lb">
-          <button class="close" type="button" aria-label="بستن">بستن</button>
-          <img src="" alt="" />
-        </div>
-      {% endif %}
+
+
+
+   
+
     </div>
   </div>
 
@@ -293,4 +315,44 @@
       })
     })()
   </script>
+
+
+  <script>
+    /* --- Swiper ------------------------------------------------------------ */
+    document.addEventListener('DOMContentLoaded', function () {
+      new Swiper('.mySwiper', {
+        loop: true,
+        slidesPerView: 1,
+        spaceBetween: 10,
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false
+        },
+        pagination: { el: '.mySwiper .swiper-pagination', clickable: true },
+        navigation: {
+          nextEl: '.mySwiper .swiper-button-next',
+          prevEl: '.mySwiper .swiper-button-prev'
+        },
+        // اگر RTL می‌خوای و بدنه سایت RTL هست:
+        // rtl: true  // نسخه‌های جدید نیاز ندارند؛ جهت را از CSS می‌گیرند
+      });
+    });
+  </script>
+
+  <style>
+    /* اندازهٔ ظرف اسلایدر */
+    .mySwiper { width: 100%; height: 100%; }
+
+    /* تصویر داخل اسلاید */
+    .mySwiper .swiper-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* اگه نسبت تصاویر متفاوته، خوب جواب می‌ده */
+      display: block;
+      border-radius: 16px;
+    }
+
+
+  </style>
+
 {% endblock %}
