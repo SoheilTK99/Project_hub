@@ -18,6 +18,7 @@ class Service(models.Model):
     delivery_time = models.CharField(max_length=100, null=True, blank=True)
     pagespeed = models.DecimalField(max_digits=5,decimal_places=3,  null=True, blank=True)
     status = models.CharField(max_length=100, null=True, blank=True)
+    pages = models.IntegerField(("تعداد صفحات"), max_length=3, default='1')
     image_1 = models.ImageField(('تصویر'), upload_to='image/', null=True, blank=True)
     image_2 = models.ImageField(('تصویر'), upload_to='image/', null=True, blank=True)
     image_3 = models.ImageField(('تصویر'), upload_to='image/', null=True, blank=True)

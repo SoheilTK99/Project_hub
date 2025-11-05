@@ -232,16 +232,17 @@
                 <span class="k">وضعیت</span>{{ service.status }}
               </div>
             {% endif %}
-            {% if service.pagespeed %}
-              <div class="it">
-                <span class="k">PageSpeed</span>{{ service.pagespeed }}
-              </div>
-            {% endif %}
             {% if service.delivery_time %}
               <div class="it">
                 <span class="k">زمان تحویل</span>{{ service.delivery_time }}
               </div>
             {% endif %}
+            {% if service.pagespeed %}
+              <div class="it">
+                <span class="k">PageSpeed</span>{{ service.pagespeed }}
+              </div>
+            {% endif %}
+
             {% if service.frontend %}
               <div class="it">
                 <span class="k">فرانت‌اند</span>{{ service.frontend }}
@@ -262,17 +263,18 @@
                 <span class="k">احراز هویت</span>{{ service.authentication }}
               </div>
             {% endif %}
-           <span></span>
-           <span></span>
-           <span></span>
-           <span></span>
-           <span></span>
+            {% if service.pages %}
+            <div class="it">
+              <span class="k">تعداد صفحات</span>{{ service.pages}}
+            </div>
+            {% endif %}           
             {% if service.link %}
-              <div class="it" style= "font-size: 18px; font-weight: 500;">
+              <div class="it" style= "font-size: 17px; font-weight: 400;">
                 <span class="k">لینک</span>
                 <a href="{{ service.link }}" target="_blank" rel="noopener" style="color:#9ec5ff">{{ service.link }}</a>
               </div>
             {% endif %}
+
           </div>
 
           {% if service.long_discription %}
