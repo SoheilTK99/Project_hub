@@ -20,7 +20,7 @@
     
     /* رنگ‌ها فقط برای این بخش—با تم خودت می‌تونی عوض کنی */
     :root {
-      --srvd-border: #223148;
+      --srvd-border: #bfc2c7ff;
       --srvd-muted: #9aa6b2;
       --srvd-badge: #cfe1ff;
     }
@@ -32,7 +32,7 @@
       background: linear-gradient(180deg, #101722, #0c1118);
       border: 1px solid var(--srvd-border);
       border-radius: 16px;
-      padding: 16px;
+      padding: 25px;
       margin-bottom: 15px;
     }
 
@@ -42,7 +42,7 @@
       background: linear-gradient(180deg, #101722, #0c1118);
       border: 1px solid var(--srvd-border);
       border-radius: 16px;
-      padding: 16px;
+      padding: 8px;
       margin-bottom: 15px;
     }
 
@@ -271,16 +271,40 @@
             {% if service.link %}
               <div class="it" style= "font-size: 17px; font-weight: 400;">
                 <span class="k">لینک</span>
-                <a href="{{ service.link }}" target="_blank" rel="noopener" style="color:#9ec5ff">{{ service.link }}</a>
+                <a href="https://{{ service.link }}" target="_blank" rel="noopener" style="color:#9ec5ff">{{ service.link }}</a>
               </div>
             {% endif %}
-            <a href="{{ service.link }}" class="btn btn-primary">بازدید</a>
+            
+
 
           </div>
-
+          <br>
           {% if service.long_discription %}
             <div class="srv-d-long">{{ service.long_discription }}</div>
           {% endif %}
+
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <br>
+          
+          <a href="https://{{ service.link }}" class="btn btn-primary" 
+          style="
+          width: 410px;
+          margin-bottom: 15px;
+          margin-top: 15px;
+          margin-right: 420px;
+          border-radius: 10px;
+
+
+            ">مشاهده آنلاین</a>
+
+
+
+
         </div>
       </section>
 
