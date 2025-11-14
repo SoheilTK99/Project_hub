@@ -1,8 +1,5 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}
-  {{ service.name }} | جزییات سرویس
-{% endblock %}
 
 {% block content %}
   <style>
@@ -178,17 +175,12 @@
       cursor: pointer;
     }
     
-    /* لینک بازگشت */
-    .srv-d-back {
-      display: inline-block;
-      margin-bottom: 10px;
-      text-decoration: none;
-    }
+
   </style>
 
   <div class="srv-d-wrap">
     <div class="srv-d-container">
-      <a href="{% url 'service:list' %}" class="srv-d-back srv-d-muted">← بازگشت به لیست</a>
+
 
       <!-- گالری تصاویر (فقط یک سوییپر) -->
       <section class="srv-d-hero-2">
@@ -232,16 +224,8 @@
                 <span class="k">وضعیت</span>{{ service.status }}
               </div>
             {% endif %}
-            {% if service.delivery_time %}
-              <div class="it">
-                <span class="k">زمان تحویل</span>{{ service.delivery_time }}
-              </div>
-            {% endif %}
-            {% if service.pagespeed %}
-              <div class="it">
-                <span class="k">PageSpeed</span>{{ service.pagespeed }}
-              </div>
-            {% endif %}
+
+
 
             {% if service.frontend %}
               <div class="it">
@@ -253,6 +237,21 @@
                 <span class="k">بک‌اند</span>{{ service.backend }}
               </div>
             {% endif %}
+            {% if service.pages %}
+            <div class="it">
+              <span class="k">تعداد صفحات</span>{{ service.pages }}
+            </div>
+            {% endif %} 
+            {% if service.delivery_time %}
+              <div class="it">
+                <span class="k">زمان تحویل</span>{{ service.delivery_time }}
+              </div>
+            {% endif %}
+            {% if service.pagespeed %}
+              <div class="it">
+                <span class="k">PageSpeed</span>{{ service.pagespeed }}
+              </div>
+            {% endif %}                                   
             {% if service.hosting %}
               <div class="it">
                 <span class="k">هاستینگ</span>{{ service.hosting }}
@@ -263,11 +262,32 @@
                 <span class="k">احراز هویت</span>{{ service.authentication }}
               </div>
             {% endif %}
-            {% if service.pages %}
-            <div class="it">
-              <span class="k">تعداد صفحات</span>{{ service.pages }}
-            </div>
-            {% endif %}           
+            {% if service.database %}
+              <div class="it">
+                <span class="k">پایگاه داده</span>{{ service.database }}
+              </div>
+            {% endif %}
+            {% if service.media_management_system %}
+              <div class="it">
+                <span class="k"> سیستم مدیریت محتوا</span>{{ service.media_management_system }}
+              </div>
+            {% endif %}
+
+            {% if service.target_devices %}
+              <div class="it">
+                <span class="k">دستگاه های هدف</span>{{ service.target_devices }}
+              </div>
+            {% endif %}  
+            {% if service.language %}
+              <div class="it">
+                <span class="k">زبان</span>{{ service.language }}
+              </div>
+            {% endif %}            
+            
+
+
+
+
             {% if service.link %}
               <div class="it" style= "font-size: 17px; font-weight: 400;">
                 <span class="k">لینک</span>
@@ -299,11 +319,7 @@
           margin-right: 420px;
           border-radius: 10px;
 
-
             ">مشاهده آنلاین</a>
-
-
-
 
         </div>
       </section>
@@ -379,6 +395,18 @@
       border-radius: 16px;
     }
 
+
+
+    .mySwiper .swiper-pagination-bullet {
+        background: #ff3f3fff !important;  /* خاکستری روشن */
+
+    }
+    .mySwiper .swiper-pagination-bullet-active {
+        background: #ff0000ff !important;  /* آبی روشن */
+    
+    }
+
+    
 
   </style>
 

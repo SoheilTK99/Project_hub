@@ -75,10 +75,10 @@ p { line-height: 1.9; }
     height: 100%;
 }
 
-.tm-bg-right { background-color: rgba(0, 0, 0, 0.628); }
+.tm-bg-right { background-color: rgba(0, 0, 0, 0.831); }
 
 .tm-bg-left {
-    border-right: 230px solid rgba(0, 0, 0, 0.628);
+    border-right: 230px solid rgba(0, 0, 0, 0.831);
     border-top: 200vh solid transparent;
 }
 
@@ -133,7 +133,7 @@ p { line-height: 1.9; }
     direction: rtl !important;
     text-align: right;
     max-width: 660px;
-    margin-top: 50px;
+    margin-top: 10px;
     padding-right: 20px;
 }
 
@@ -155,12 +155,12 @@ hr { border-top: 1px solid white; }
 
 .btn {
     padding: 10px 25px;
-    border-radius: 0;
+    border-radius: 6px;
 }
 
 .btn-big {
     padding: 9px 40px;
-    font-size: 1.2rem;;
+    font-size: 1rem;;
 }
 
 .btn-primary {
@@ -296,7 +296,7 @@ textarea {
 
     .tm-bg-left {
         height: 200px;        
-        border-bottom: 50px solid rgba(0,0,0,0.5);
+        border-bottom: 50px solid rgba(0, 0, 0, 0.5);
         border-right: 0;
         border-top: 0;
     }

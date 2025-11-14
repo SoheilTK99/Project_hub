@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home',
     'service',
+    'contact'
 ]
 
 MIDDLEWARE = [
@@ -128,3 +129,16 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+# Emaail contact 
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+EMAIL_HOST_USER = "soheil.ce.99@gmail.com"
+EMAIL_HOST_PASSWORD = "eynb rjeo pkxo cdrg"   # پسورد اپ جیمیل
+
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
