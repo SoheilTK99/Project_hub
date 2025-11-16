@@ -10,14 +10,124 @@
     <main class="tm-col-right">
       <section class="tm-content">
         <h2 class="mb-5 tm-content-title">خدمات تخصصی توسعه وب</h2>
-        <p class="mb-5"> همه‌چیز از یه لپ‌تاپ قدیمی و یه فنجون قهوه شروع شد. من سهیل طالبی هستم — کسی که سال ۱۴۰۰ تصمیم گرفت ایده‌ها رو از کاغذ به صفحه نمایش بیاره. حالا بعد از ۴۰+ پروژه، هنوز همون هیجان روز اول رو دارم وقتی یه سایت زنده می‌شه و مشتری لبخند می‌زنه. </p>
-        <hr class="mb-5" />
-        <p class="mb-5">Diagoona is Bootstrap v4.4.1 layout. This BG is 50% transparent. You can set the background images auto play settings (true or false in line number 33) in templatemo-script.js file in js folder.</p>
-        <a href="about.html" class="btn btn-primary">مشاهده نمونه کارها</a>
+        <p class="mb-5"> همه‌چیز از یک لپ‌تاپ قدیمی و فنجون قهوه شروع شد! <br> من سهیل طالبی هستم؛ کسی که تصمیم گرفت ایده ها رو از کاغذ به صفحه نمایش بیاره و قدم در حوزه طراحی وبسایت بزاره. </p>
+        <p class="mb-5"> هر پروژه یک دستاورد و هر سایت یک ابزار رشد. با استانداردهای جهانی، سرعت بالا و خدمات پس از طراحی. </p>
+        <a href="/service/" class="btn btn-primary">مشاهده نمونه کارها</a>
       </section>
     </main>
   </div> 
 
+
+
+<div class="container">
+  <div class="row justify-content-end mt-5"> <!-- راست‌چین -->
+    
+    <!-- ردیف اول: ۳ تا -->
+    <!-- HTML/CSS -->
+    <div class="col-4 col-md-2 mb-4 text-center">
+      <div class="skill-spin">
+        <i class="fab fa-html5 fa-2x text-danger"></i>
+      </div>
+      <h6 class="text-white mt-2 small">HTML/CSS</h6>
+    </div>
+
+    <!-- JavaScript -->
+    <div class="col-4 col-md-2 mb-4 text-center">
+      <div class="skill-spin">
+        <i class="fab fa-js-square fa-2x text-warning"></i>
+      </div>
+      <h6 class="text-white mt-2 small">JavaScript</h6>
+    </div>
+
+    <!-- Python -->
+    <div class="col-4 col-md-2 mb-4 text-center">
+      <div class="skill-spin">
+        <i class="fab fa-python fa-2x text-info"></i>
+      </div>
+      <h6 class="text-white mt-2 small">Python</h6>
+    </div>
+    
+    <!-- ردیف دوم: ۳ تا -->
+    <!-- Django -->
+    <div class="col-4 col-md-2 mb-4 text-center">
+      <div class="skill-spin">
+        <div class="django-logo d-inline-flex align-items-center justify-content-center rounded-circle">
+          <strong>dj</strong>
+        </div>
+      </div>
+      <h6 class="text-white mt-2 small">Django</h6>
+    </div>
+
+    <!-- REST API -->
+    <div class="col-4 col-md-2 mb-4 text-center">
+      <div class="skill-spin">
+        <i class="fas fa-exchange-alt fa-2x text-cyan"></i>
+      </div>
+      <h6 class="text-white mt-2 small">REST API</h6>
+    </div>
+
+    <!-- PostgreSQL -->
+    <div class="col-4 col-md-2 mb-4 text-center">
+      <div class="skill-spin">
+        <i class="fas fa-database fa-2x text-primary"></i>
+      </div>
+      <h6 class="text-white mt-2 small">PostgreSQL</h6>
+    </div>
+
+  </div>
+</div>
+
+<style>
+.skill-spin {
+  width: 45px;
+  height: 45px;
+  margin: 0 auto;
+  transition: all 0.4s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(6px);
+}
+
+.skill-spin:hover {
+  transform: rotate(360deg) scale(1.25);
+  background: rgba(0, 212, 255, 0.25);
+  box-shadow: 0 0 18px rgba(0, 212, 255, 0.6);
+}
+
+.django-logo {
+  width: 45px;
+  height: 45px;
+  background-color: #0C4B33;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  font-weight: 800;
+  font-size: 1.1rem;
+  text-transform: lowercase;
+  letter-spacing: -1px;
+}
+
+.skill-spin:hover .django-logo {
+  background-color: #09291f;
+  box-shadow: 0 0 15px rgba(12, 75, 51, 0.7);
+}
+
+/* موبایل: ۳ تا در ردیف، کوچیک */
+@media (max-width: 768px) {
+  .col-4 {
+    flex: 0 0 33.333%;
+    max-width: 33.333%;
+  }
+  .skill-spin { width: 40px; height: 40px; }
+  .django-logo { width: 40px; height: 40px; font-size: 1rem; }
+  h6.small { font-size: 0.75rem; }
+}
+</style>
+
+
+  <br>
   <div class="tm-row">
     <div class="tm-col-left text-center">
       <ul class="tm-bg-controls-wrapper">
@@ -28,7 +138,6 @@
     </div>
     <div class="tm-col-right tm-col-footer"></div>
   </div> 
-
 
 
 
