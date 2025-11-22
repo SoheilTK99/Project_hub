@@ -29,9 +29,10 @@ MEDIA_ROOT = BASE_DIR / 'media'
 SECRET_KEY = 'django-insecure-zk7#@s^6b^@ip#^9lwe(wh3_#se*wd#fi&v&yd!2z$l&0a+nw#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG=False
 
-ALLOWED_HOSTS = []
+
+ALLOWED_HOSTS = ['sokiyan.ir','www.sokiyan.ir','sokiyan.onrender.com']
 
 
 # Application definition
