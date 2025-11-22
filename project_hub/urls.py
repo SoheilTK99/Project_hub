@@ -19,8 +19,10 @@ from django.urls import path , include
 from django.views.generic import TemplateView
 from django.conf.urls.static import static
 from django.conf import settings
+from django.shortcuts import redirect
 
 urlpatterns = [
+    path('', lambda request: redirect('/home/')),
     path('admin/', admin.site.urls),
     path('home/', TemplateView.as_view(template_name='home/home.html'), name='home'),
     path('about/', TemplateView.as_view(template_name='home/about.html'), name='about'),
