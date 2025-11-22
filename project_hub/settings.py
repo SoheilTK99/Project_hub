@@ -17,22 +17,25 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']  
 
 
-MEDIA_URL = '/media/'
+MEDIA_URL = '/media/'ثطهف
 MEDIA_ROOT = BASE_DIR / 'media'
 
-
+import os
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-zk7#@s^6b^@ip#^9lwe(wh3_#se*wd#fi&v&yd!2z$l&0a+nw#'
+SECRET_KEY = os.environ.get('SECRET_KEY', 'your-insecure-fallback-key-for-local-development')
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG=False
 
 
-ALLOWED_HOSTS = ['sokiyan.ir','www.sokiyan.ir','sokiyan.onrender.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost','sokiyan.ir','.sokiyan.ir','www.sokiyan.ir','.onrender.com']
 
 
 # Application definition
