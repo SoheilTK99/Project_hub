@@ -27,7 +27,6 @@ CLOUDINARY_API_KEY = os.environ.get('CLOUDINARY_API_KEY')
 CLOUDINARY_API_SECRET = os.environ.get('CLOUDINARY_API_SECRET')
 
 
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
@@ -39,7 +38,7 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG=False
+DEBUG= True
 
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost','sokiyan.ir','.sokiyan.ir','www.sokiyan.ir','.onrender.com']
@@ -137,7 +136,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = 'static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field

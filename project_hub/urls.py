@@ -28,9 +28,8 @@ urlpatterns = [
     path('about/', TemplateView.as_view(template_name='home/about.html'), name='about'),
     path('service/', include('service.urls')),
     path('contact/', include('contact.urls')),
+    
  
- 
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
