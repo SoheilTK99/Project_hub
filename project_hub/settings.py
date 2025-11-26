@@ -7,18 +7,15 @@ import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # -------------------------------------------------
 # ENVIRONMENT
 # -------------------------------------------------
 ENVIRONMENT = os.environ.get("ENVIRONMENT", "development")
 
-
 # -------------------------------------------------
 # SECURITY
 # -------------------------------------------------
 SECRET_KEY = os.environ.get("SECRET_KEY", "dev-insecure-secret-key")
-
 DEBUG = ENVIRONMENT == "development"
 
 ALLOWED_HOSTS = [
@@ -39,7 +36,6 @@ SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 STATIC_URL = "/static/"
 STATICFILES_DIRS = [BASE_DIR / "static"]
 STATIC_ROOT = BASE_DIR / "staticfiles"
-
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 
@@ -47,34 +43,23 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 # MEDIA FILES (Cloudinary in Production)
 # -------------------------------------------------
 if ENVIRONMENT == "development":
-
     MEDIA_URL = "/media/"
     MEDIA_ROOT = BASE_DIR / "media"
     DEFAULT_FILE_STORAGE = "django.core.files.storage.FileSystemStorage"
 
 else:
-    MEDIA_URL = "/media/"
-    MEDIA_ROOT = "/tmp/django_media/"  # compatibility
-
     import cloudinary
-    import cloudinary_storage
+    import cloudinary_storage.storage
 
     cloudinary.config(
         cloud_name=os.environ.get("CLOUDINARY_CLOUD_NAME"),
         api_key=os.environ.get("CLOUDINARY_API_KEY"),
         api_secret=os.environ.get("CLOUDINARY_API_SECRET"),
+        secure=True,
     )
 
-    # -----------------------------
-    #  CLOUDINARY STORAGE SETTINGS
-    # -----------------------------
-    CLOUDINARY_STORAGE = {
-        "CLOUD_NAME": os.environ.get("CLOUDINARY_CLOUD_NAME"),
-        "API_KEY": os.environ.get("CLOUDINARY_API_KEY"),
-        "API_SECRET": os.environ.get("CLOUDINARY_API_SECRET"),
-    }
-
     DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
+    MEDIA_URL = "/media/"  # Cloudinary doesn’t use this but Django needs it
 
 
 # -------------------------------------------------
@@ -115,7 +100,7 @@ MIDDLEWARE = [
 
 
 # -------------------------------------------------
-# URL + WSGI
+# URL & WSGI
 # -------------------------------------------------
 ROOT_URLCONF = "project_hub.urls"
 WSGI_APPLICATION = "project_hub.wsgi.application"
@@ -172,20 +157,15 @@ USE_TZ = True
 
 
 # -------------------------------------------------
-# EMAIL CONFIG
+# EMAIL
 # -------------------------------------------------
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-
 EMAIL_HOST_USER = "soheil.ce.99@gmail.com"
 EMAIL_HOST_PASSWORD = "eynb rjeo pkxo cdrg"
-
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 
-# -------------------------------------------------
-# DEFAULT PRIMARY KEY
-# -------------------------------------------------
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
