@@ -47,13 +47,14 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 # MEDIA FILES (Cloudinary in Production)
 # -------------------------------------------------
 if ENVIRONMENT == "development":
+
     MEDIA_URL = "/media/"
     MEDIA_ROOT = BASE_DIR / "media"
     DEFAULT_FILE_STORAGE = "django.core.files.storage.FileSystemStorage"
 
 else:
     MEDIA_URL = "/media/"
-    MEDIA_ROOT = "/tmp/django_media/"  # Compatibility only
+    MEDIA_ROOT = "/tmp/django_media/"  # compatibility
 
     import cloudinary
     import cloudinary_storage
@@ -63,6 +64,15 @@ else:
         api_key=os.environ.get("CLOUDINARY_API_KEY"),
         api_secret=os.environ.get("CLOUDINARY_API_SECRET"),
     )
+
+    # -----------------------------
+    #  CLOUDINARY STORAGE SETTINGS
+    # -----------------------------
+    CLOUDINARY_STORAGE = {
+        "CLOUD_NAME": os.environ.get("CLOUDINARY_CLOUD_NAME"),
+        "API_KEY": os.environ.get("CLOUDINARY_API_KEY"),
+        "API_SECRET": os.environ.get("CLOUDINARY_API_SECRET"),
+    }
 
     DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
 
