@@ -61,6 +61,9 @@ else:
     DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
     MEDIA_URL = "/media/"  # Cloudinary doesn’t use this but Django needs it
 
+    CLOUDINARY_CLOUD_NAME = os.environ.get("CLOUDINARY_CLOUD_NAME")
+    CLOUDINARY_URL = f"cloudinary://{os.environ.get('CLOUDINARY_API_KEY')}:{os.environ.get('CLOUDINARY_API_SECRET')}@{CLOUDINARY_CLOUD_NAME}"
+
 
 # -------------------------------------------------
 # APPS
