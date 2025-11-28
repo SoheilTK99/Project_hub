@@ -7,16 +7,14 @@ import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# -------------------------------------------------
-# ENVIRONMENT
-# -------------------------------------------------
-ENVIRONMENT = os.environ.get("ENVIRONMENT", "development")
 
 # -------------------------------------------------
 # SECURITY
 # -------------------------------------------------
 SECRET_KEY = os.environ.get("SECRET_KEY", "dev-insecure-secret-key")
-DEBUG = ENVIRONMENT == "development"
+
+
+DEBUG = True
 
 ALLOWED_HOSTS = [
     "127.0.0.1",
@@ -40,29 +38,11 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 
 # -------------------------------------------------
-# MEDIA FILES (Cloudinary in Production)
+# MEDIA FILES 
 # -------------------------------------------------
-if ENVIRONMENT == "development":
-    MEDIA_URL = "/media/"
-    MEDIA_ROOT = BASE_DIR / "media"
-    DEFAULT_FILE_STORAGE = "django.core.files.storage.FileSystemStorage"
-
-else:
-    import cloudinary
-    import cloudinary_storage.storage
-
-    cloudinary.config(
-        cloud_name=os.environ.get("CLOUDINARY_CLOUD_NAME"),
-        api_key=os.environ.get("CLOUDINARY_API_KEY"),
-        api_secret=os.environ.get("CLOUDINARY_API_SECRET"),
-        secure=True,
-    )
-
-    DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
-    MEDIA_URL = "/media/"  # Cloudinary doesn’t use this but Django needs it
-
-    CLOUDINARY_CLOUD_NAME = os.environ.get("CLOUDINARY_CLOUD_NAME")
-    CLOUDINARY_URL = f"cloudinary://{os.environ.get('CLOUDINARY_API_KEY')}:{os.environ.get('CLOUDINARY_API_SECRET')}@{CLOUDINARY_CLOUD_NAME}"
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / "media"
+DEFAULT_FILE_STORAGE = "django.core.files.storage.FileSystemStorage"
 
 
 # -------------------------------------------------
@@ -76,14 +56,11 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
 
-    # Your apps
+    # My apps
     "home",
     "service",
     "contact",
 
-    # Cloudinary
-    "cloudinary",
-    "cloudinary_storage",
 ]
 
 
