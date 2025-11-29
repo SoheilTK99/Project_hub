@@ -180,10 +180,12 @@
     
     /* tools */
     .tools {
-      display: flex;
-      gap: 12px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
       flex-wrap: wrap;
       margin-top: 18px;
+      text-align: center;
     }
     .tool {
       padding: 10px 12px;
@@ -243,14 +245,7 @@
 
       <div style="color:#fff">
         <h2>درباره من</h2>
-        <p class="lead" style="text-align: justify; direction: rtl;"> سلام، من سهیل طالبی هستم با بیش از یک دهه تجربه تخصصی در طراحی و توسعه وب‌سایت‌های حرفه‌ای بر پایه‌ی جنگو و طراحی قالب‌های کاملاً اختصاصی. اگر به دنبال راه‌اندازی یک وب‌سایت شرکتی یا فروشگاهی با ظاهری شیک، هویت بصری منحصربه‌فرد و کدنویسی استاندارد هستید، اینجا جایی است که می‌توانید یک پروژه دقیق، اصولی و کاملاً مطابق نیاز کسب‌وکارتان داشته باشید </p>
-
-        <div style="display:flex;gap:12px;margin-top:14px;flex-wrap:wrap">
-          <div class="tool">طراحی UI</div>
-          <div class="tool">Front-end</div>
-          <div class="tool">Back-end</div>
-          <div class="tool">Responsive</div>
-        </div>
+        <p class="lead" style="text-align: justify; direction: rtl;">سلام، من سهیل طالبی هستم با بیش از 4 سال تجربه تخصصی در طراحی و توسعه وب‌سایت‌های حرفه‌ای بر پایه‌ی جنگو و طراحی قالب‌های کاملاً اختصاصی. اگر به دنبال راه‌اندازی یک وب‌سایت شرکتی یا فروشگاهی با ظاهری شیک، هویت بصری منحصربه‌فرد و کدنویسی استاندارد هستید، اینجا جایی است که می‌توانید یک پروژه دقیق، اصولی و کاملاً مطابق نیاز کسب‌وکارتان داشته باشید</p>
       </div>
     </div>
   </section>
@@ -264,15 +259,15 @@
 
           <div class="timeline">
             <div class="event">
-              <div class="meta">2015 — شروع برنامه‌نویسی</div>
+              <div class="meta">2020 — شروع برنامه‌نویسی</div>
               <div>آغاز یادگیری HTML, CSS و JavaScript و علاقه‌مندی به طراحی رابط کاربری</div>
             </div>
             <div class="event">
-              <div class="meta">2018 — اولین پروژه تجاری</div>
+              <div class="meta">2023 — اولین پروژه تجاری</div>
               <div>ایجاد وب‌سایت برای یک کسب‌وکار محلی با تمرکز بر سرعت و سئو</div>
             </div>
             <div class="event">
-              <div class="meta">2021 — سوق به سمت Full-stack</div>
+              <div class="meta">2025 — سوق به سمت Full-stack</div>
               <div>یادگیری Python و Django و راه‌اندازی سرویس‌های REST API</div>
             </div>
           </div>
@@ -320,22 +315,14 @@
           </div>
 
           <div style="margin-top:18px">
-            <h4>ارزش‌های کاری من</h4>
-            <div class="values">
-              <div class="value">تحویل به‌موقع</div>
-              <div class="value">کد تمیز</div>
-              <div class="value">پشتیبانی</div>
-              <div class="value">طراحی قابل توسعه</div>
-            </div>
-          </div>
-
-          <div style="margin-top:18px">
-            <h4>ابزارها</h4>
+            <h4>خدمات</h4>
             <div class="tools">
-              <div class="tool">Figma</div>
-              <div class="tool">VSCode</div>
-              <div class="tool">Git</div>
-              <div class="tool">Docker</div>
+              <div class="tool">Back-end</div>
+              <div class="tool">Front-end</div>
+              <div class="tool">SEO</div>
+              <div class="tool">UI/UX</div>
+              <div class="tool">Responsive Design</div>
+              <div class="tool">Speed optimization</div>
             </div>
           </div>
         </aside>
