@@ -176,8 +176,11 @@ hr { border-top: 1px solid white; }
 
 .tm-site-footer {
     padding: 5px 0 20px;
+    margin-left: 280px !important;
+    margin-right: 200px !important;
     max-width: 660px;
     font-size: 0.95rem;
+   
 }
 
 .tm-col-footer { padding-left: 0; }
