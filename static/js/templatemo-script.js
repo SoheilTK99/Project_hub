@@ -1,6 +1,7 @@
 const initBg = (autoplay = true) => {
-    const bgImgsNames = ['6.jpg', '11.jpg', '3.jpg'];
-    const bgImgs = bgImgsNames.map(name => (window.STATIC_URL || '/static/') + 'img/' + name);
+    $.backstretch('destroy', true);
+    const bgImgsNames = ['4.jpg', '6.jpg', '11.jpg'];
+    const bgImgs = bgImgsNames.map(name => (window.STATIC_URL || '/static/') + 'img/' + name + '?v=' + Date.now());
 
     $.backstretch(bgImgs, {duration: 8000, fade: 500});
 
