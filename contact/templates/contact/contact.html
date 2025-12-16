@@ -29,6 +29,28 @@
                     </div>
                 </form>
 
+
+                <br>
+                <br>
+                <br>
+
+
+
+            <div class="social-links-wrapper">
+            <a href="tel:09100385781" class="phone-link">    
+                <div class="phone-hover-box">
+                    <div class="phone-text">
+                        <div class="phone-number">0910 038 5781</div>
+                        <div class="phone-label">تماس مستقیم</div>
+                    </div>
+
+                    <div class="phone-icon">
+                        <img src=" /static/img/phone.png " alt="تماس با من">
+                    </div>
+                </div>
+            </a>
+            
+            
                 <div class="social-links">
                 <a href="https://t.me/Soheil_Talebee" class="tg" target="_blank" rel="noopener">
                     <i class="fa-brands fa-telegram"></i>
@@ -46,6 +68,12 @@
                     <i class="fa-brands fa-whatsapp"></i>
                 </a>
                 </div>
+            </div>
+
+
+
+
+
                     </div>
                 </form>
             </section>
@@ -149,6 +177,74 @@
         font-size: 16px;
     }
     }
+
+
+
+
+
+
+    .social-links-wrapper {
+    position: relative;
+    display: inline-block;
+    }
+
+    /* باکس تلفن */
+    .phone-hover-box {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: space-between;
+    direction: rtl;  
+
+    bottom: 85px;
+    left: 50%;
+    transform: translateX(-50%) translateY(1px);
+
+    padding: 9px 24px;
+    min-width: 220px; 
+    border-radius: 10px;
+    background: #ffffff;
+
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    text-align: center;
+    direction: ltr;
+
+    opacity: 1;                 /* همیشه دیده شود */
+    pointer-events: auto;
+    transition: all 0.25s ease;
+    z-index: 50;
+    }
+
+    /* متن شماره */
+    .phone-number {
+    display: block;
+    font-weight: 700;
+    font-size: 18px;
+    color: #0f172a;
+    }
+
+    /* زیرنویس */
+    .phone-label {
+    font-size: 12px;
+    color: #64748b;
+    }
+
+
+    /* فعال شدن باکس */
+    .social-links-wrapper:hover .phone-hover-box {
+    transform: translateX(-50%) translateY(-4px);
+    box-shadow: 0 22px 45px rgba(0,0,0,0.28);
+    }
+
+
+    .phone-icon img {
+    width: 35px;        /* 👈 سایز افقی */
+    height: 35px;       /* 👈 سایز عمودی */
+    object-fit: contain;
+    margin-right: -8px;
+    }
+
+
 
 
 
