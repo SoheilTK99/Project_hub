@@ -2,43 +2,222 @@
 {% load static %}
 
 {% block content %}
-  <div class="tm-row">
-    <div class="tm-col-left"></div>
-    <main class="tm-col-right">
-      <section class="tm-content" style="text-align: left;" dir="ltr">
-          {% for service in services %}
-            <div class="media my-3 mb-5 tm-service-media tm-service-media-img-l">
-              
-              <div class="media-body tm-service-text" style="direction: rtl; text-align: right;" >
-                <br>
-                <h2 class="mb-4 tm-content-title" >{{ service.name }}</h2>
-                <p>{{ service.short_discription }}</p>
-                <a href="{% url 'service:detail' service.pk %}" class="btn btn-primary">بازدید</a>
-                
-              </div>
-            <img src="{{ service.lable.url }}" alt="Image" class="tm-service-img"
-                  style="width: 370px; height: 230px; overflow: hidden; border-radius: 12px; 
-                          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); margin: 20px auto;" />
 
+<!-- ===== FULL VIEWPORT PORTFOLIO ===== -->
+<section class="portfolio-fullscreen" dir="rtl">
 
-            </div>
+  <div class="portfolio-grid">
 
-            <!-- خط جداکننده کامل در سطح بلوک اصلی -->
-            <hr class="tm-full-hr mb-5" />
-          {% endfor %}
-      </section>
-    </main>
+    {% for service in services %}
+      <article class="project-card">
+
+        <div class="project-image">
+          <div class="project-image-header">
+            {{ service.name }}
+          </div>
+
+          <div class="project-image-body">
+            <img src="{{ service.lable.url }}" alt="{{ service.name }}">
+          </div>
+        </div>
+
+        <div class="project-content">
+          <a href="{% url 'service:detail' service.pk %}" class="project-btn">
+            بازدید
+          </a>
+        </div>
+
+      </article>
+    {% endfor %}
+
   </div>
 
-  <div class="tm-row">
-    <div class="tm-col-left text-center">
-      <ul class="tm-bg-controls-wrapper">
-        <li class="tm-bg-control active" data-id="0"></li>
-        <li class="tm-bg-control" data-id="1"></li>
-        <li class="tm-bg-control" data-id="2"></li>
-      </ul>
-    </div>
+</section>
+
+<!-- ===== BACKGROUND CONTROLS (همون قبلی، دست نخورده) ===== -->
+<div class="tm-row">
+  <div class="tm-col-left text-center">
+    <ul class="tm-bg-controls-wrapper">
+      <li class="tm-bg-control active" data-id="0"></li>
+      <li class="tm-bg-control" data-id="1"></li>
+      <li class="tm-bg-control" data-id="2"></li>
+    </ul>
   </div>
+</div>
+
+
+
+
+<style>
+
+.portfolio-fullwidth {
+  display: block !important;
+}
+
+
+.portfolio-fullwidth .tm-col-left {
+  display: none !important;
+}
+
+.portfolio-fullwidth .tm-col-right {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  float: none;
+}
+
+
+/* ===== Portfolio Grid ===== */
+.portfolio-section {
+  padding: 60px 0;
+}
+
+.portfolio-canvas {
+  width: 100vw;
+  margin-right: calc(-50vw + 50%);
+  margin-left: -500px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+.portfolio-fullscreen {
+  width: 100vw;
+  padding: 80px 60px;
+  box-sizing: border-box;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  width: 100%;
+  direction: rtl;
+}
+
+/* ===== Project Card ===== */
+.project-card {
+  background: #0f172a;
+  border-radius: 14px;
+  overflow: hidden;
+  transition: all .4s ease;
+  height: 560px;              /* 👈 فقط این */
+  display: flex;
+  flex-direction: column;
+
+
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 60px rgba(0,0,0,.45);
+}
+
+:root {
+  --image-header-height: 46px;
+}
+
+
+/* ===== Project Image (MAGIC HERE) ===== */
+.project-image {
+  height: 420px;           /* قاب ثابت */
+  overflow: hidden;
+  position: relative;
+  background: #0f172a;
+}
+
+/* عکس عمداً بلندتر از قاب */
+.project-image img {
+  width: 100%;
+  height: auto;
+  min-height: 100px;       /* 👈 راز کار اینجاست */
+  object-fit: contain;
+  transition: transform 2s ease;
+}
+
+.project-image-body {
+  height: calc(420px - var(--image-header-height));
+  overflow: hidden;
+  position: relative;
+}
+
+
+.project-image-header {
+  height: var(--image-header-height);
+  background: rgba(255, 219, 89);
+  color: #000000ff;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+
+
+/* ===== Content ===== */
+.project-content {
+  padding: 24px;
+  text-align: right;
+  margin-top: auto;
+}
+
+.project-title {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.project-desc {
+  font-size: 14px;
+  opacity: .7;
+  margin-bottom: 20px;
+}
+
+/* ===== Button ===== */
+.project-btn {
+  display: inline-block;
+  padding: 8px 22px;
+  border-radius: 999px;
+  border: 1px solid #38bdf8;
+  color: #38bdf8;
+  transition: .3s;
+}
+
+.project-btn:hover {
+  background: #38bdf8;
+  color: #000;
+}
+
+
+</style>
+
+
+<script>
+document.querySelectorAll('.project-card').forEach(card => {
+  const img = card.querySelector('.project-image-body img');
+  const body = card.querySelector('.project-image-body');
+
+  card.addEventListener('mouseenter', () => {
+    const scrollAmount = img.offsetHeight - body.offsetHeight;
+
+    if (scrollAmount > 5) {
+      const duration = scrollAmount / 100 * 0.9;
+      img.style.transition = `transform ${duration}s ease`;
+      img.style.transform = `translateY(-${scrollAmount}px)`;
+    }
+  });
+
+  card.addEventListener('mouseleave', () => {
+    img.style.transition = 'transform 0.6s ease';
+    img.style.transform = 'translateY(0)';
+  });
+});
+
+</script>
+
+
 
 
 

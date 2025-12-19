@@ -45,27 +45,27 @@
                     </div>
 
                     <div class="phone-icon">
-                        <img src=" /static/img/phone.png " alt="تماس با من">
+                        <img src=" /static/img/phone2.png " alt="تماس با من">
                     </div>
                 </div>
             </a>
             
             
                 <div class="social-links">
-                <a href="https://t.me/Soheil_Talebee" class="tg" target="_blank" rel="noopener">
-                    <i class="fa-brands fa-telegram"></i>
+                <a href="https://github.com/SoheilTK99" class="gh" target="_blank" rel="noopener">
+                    <i class="fa-brands fa-github"></i>
                 </a>
 
                 <a href="https://www.instagram.com/soheil_t_kd?igsh=MTFtZHcwMDk4Y2Nidw==" class="ig" target="_blank" rel="noopener">
                     <i class="fa-brands fa-instagram"></i>
                 </a>
 
-                <a href="https://github.com/SoheilTK99" class="gh" target="_blank" rel="noopener">
-                    <i class="fa-brands fa-github"></i>
-                </a>
-
                 <a href="https://wa.me/989100385781" class="wa" target="_blank" rel="noopener">
                     <i class="fa-brands fa-whatsapp"></i>
+                </a>
+
+                <a href="https://t.me/Soheil_Talebee" class="tg" target="_blank" rel="noopener">
+                    <i class="fa-brands fa-telegram"></i>
                 </a>
                 </div>
             </div>
@@ -94,160 +94,165 @@
 
 
 
-
 <style>
 
-    /* کانتینر آیکون‌ها */
+    /* =============================
+       آیکن‌های شبکه اجتماعی
+    ============================== */
+
     .social-links {
-    display: flex;
-    justify-content: center;
-    gap: 14px;
-    margin: 60px 0 0px;
+        display: flex;
+        justify-content: center;
+        gap: 14px;
+        margin: 60px 0 0px;
     }
 
     .social-links a i {
-    font-size: 24px;   /* ← این مقدار را هرچقدر می‌خوای زیاد کن */
+        font-size: 24px;
     }
 
-
-    /* استایل پایه دکمه‌ها (گلاس افکت) */
     .social-links a {
-    width: 55px;
-    height: 55px;
-    border-radius: 999px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+        width: 55px;
+        height: 55px;
+        border-radius: 999px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
 
-    background: rgba(10, 14, 23, 0.7);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.55);
-    backdrop-filter: blur(8px);
- 
-    color: #f8fafc;
-    text-decoration: none;
-    font-size: 18px;
+        background: rgba(10, 14, 23, 0.7);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.55);
+        backdrop-filter: blur(8px);
 
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+        color: #f8fafc;
+        text-decoration: none;
+        font-size: 18px;
+
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
     }
 
-    /* حلقه نازک روشن داخل دکمه */
     .social-links a::after {
-    content: "";
-    position: absolute;
-    inset: 4px;
-    border-radius: inherit;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    pointer-events: none;
+        content: "";
+        position: absolute;
+        inset: 4px;
+        border-radius: inherit;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        pointer-events: none;
     }
 
-    /* برندینگ رنگی هر شبکه */
-    .social-links a.wa   { border-color: #25d366; }
-    .social-links a.gh   { border-color: #cbd5f5; }
-    .social-links a.ig   { border-color: #e1306c; }
-    .social-links a.tg   { border-color: #2aabee; }
+    .social-links a.wa { border-color: #25d366; }
+    .social-links a.gh { border-color: #cbd5f5; }
+    .social-links a.ig { border-color: #e1306c; }
+    .social-links a.tg { border-color: #2aabee; }
 
-    /* افکت هاور عمومی */
     .social-links a:hover {
-    transform: translateY(-3px) scale(1.03);
-    box-shadow: 0 16px 35px rgba(0, 0, 0, 0.75);
+        transform: translateY(-3px) scale(1.03);
+        box-shadow: 0 16px 35px rgba(0, 0, 0, 0.75);
     }
 
-    /* هاله رنگی مخصوص هر شبکه هنگام هاور */
-    .social-links a.wa:hover {
-    box-shadow: 0 0 18px rgba(37, 211, 102, 0.9);
-    }
-    .social-links a.gh:hover {
-    box-shadow: 0 0 18px rgba(148, 163, 184, 0.9);
-    }
-    .social-links a.ig:hover {
-    box-shadow: 0 0 18px rgba(225, 48, 108, 0.9);
-    }
-    .social-links a.tg:hover {
-    box-shadow: 0 0 18px rgba(42, 171, 238, 0.9);
-    }
+    .social-links a.wa:hover { box-shadow: 0 0 18px rgba(37, 211, 102, 0.9); }
+    .social-links a.gh:hover { box-shadow: 0 0 18px rgba(148, 163, 184, 0.9); }
+    .social-links a.ig:hover { box-shadow: 0 0 18px rgba(225, 48, 108, 0.9); }
+    .social-links a.tg:hover { box-shadow: 0 0 18px rgba(42, 171, 238, 0.9); }
 
-    /* برای صفحه‌های کوچک کمی کوچک‌تر بشن */
     @media (max-width: 600px) {
-    .social-links a {
-        width: 40px;
-        height: 40px;
-        font-size: 16px;
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            font-size: 16px;
+        }
     }
-    }
 
 
-
-
-
+    /* =============================
+       باکس تماس تلفنی
+    ============================== */
 
     .social-links-wrapper {
-    position: relative;
-    display: inline-block;
+        position: relative;
+        display: inline-block;
+        direction: ltr;
+
     }
 
-    /* باکس تلفن */
     .phone-hover-box {
-    display: flex;
-    position: absolute;
-    align-items: center;
-    justify-content: space-between;
-    direction: rtl;  
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
 
-    bottom: 85px;
-    left: 50%;
-    transform: translateX(-50%) translateY(1px);
+        position: absolute;
+        bottom: 85px;
+        left: 50%;
+        transform: translateX(-50%) translateY(1px);
 
-    padding: 9px 24px;
-    min-width: 220px; 
-    border-radius: 10px;
-    background: #ffffff;
+        min-width: 260px;
+        height: 64px;
 
-    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-    text-align: center;
-    direction: ltr;
+        background: #ffffff;
+        border-radius: 10px;
+        overflow: hidden;
 
-    opacity: 1;                 /* همیشه دیده شود */
-    pointer-events: auto;
-    transition: all 0.25s ease;
-    z-index: 50;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        transition: all 0.3s ease;
+        z-index: 50;
     }
 
-    /* متن شماره */
+    /* متن سمت چپ */
+    .phone-text {
+        padding: 0 22px;
+        text-align: right;
+        direction: ltr;
+    }
+
     .phone-number {
-    display: block;
-    font-weight: 700;
-    font-size: 18px;
-    color: #0f172a;
+        font-weight: 700;
+        font-size: 18px;
+        color: #0f172a;
     }
 
-    /* زیرنویس */
     .phone-label {
-    font-size: 12px;
-    color: #64748b;
+        font-size: 12px;
+        color: #4a4a4aff;
+        margin-top: 4px;
+        font-weight:500;
     }
 
+    /* بخش آیکن سمت راست */
+    .phone-icon {
+        width: 72px;
+        height: 100%;
+        background: #dad9e4ff;
 
-    /* فعال شدن باکس */
-    .social-links-wrapper:hover .phone-hover-box {
-    transform: translateX(-50%) translateY(-4px);
-    box-shadow: 0 22px 45px rgba(0,0,0,0.28);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        transition: background 0.3s ease;
     }
-
 
     .phone-icon img {
-    width: 35px;        /* 👈 سایز افقی */
-    height: 35px;       /* 👈 سایز عمودی */
-    object-fit: contain;
-    margin-right: -8px;
+        width: 32px;
+        height: 32px;
+        object-fit: contain;
+        transition: transform 0.3s ease;
     }
 
+    /* افکت هاور */
+    .phone-link:hover .phone-hover-box {
+        transform: translateX(-50%) translateY(-4px);
+        box-shadow: 0 26px 50px rgba(0,0,0,0.28);
+    }
 
+    .phone-link:hover .phone-icon {
+        background: #1e40ff;
+    }
 
-
-
+    .phone-link:hover .phone-icon img {
+        transform: scale(1.08);
+        filter: brightness(0) invert(1); /* سفید شدن آیکن */
+    }
 
 </style>
 
