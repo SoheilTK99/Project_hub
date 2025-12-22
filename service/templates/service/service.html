@@ -23,7 +23,7 @@
 
         <div class="project-content">
           <a href="{% url 'service:detail' service.pk %}" class="project-btn">
-            بازدید
+            نمایش جزئیات
           </a>
         </div>
 
@@ -69,6 +69,22 @@
 
 
 /* ===== Portfolio Grid ===== */
+
+.project-bar {
+  height: var(--image-header-height);
+  background: rgba(255, 219, 89);
+  color: #000;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+
+
 .portfolio-section {
   padding: 60px 0;
 }
@@ -102,7 +118,7 @@
   border-radius: 14px;
   overflow: hidden;
   transition: all .4s ease;
-  height: 560px;              /* 👈 فقط این */
+  height: auto;             /* 👈 فقط این */
   display: flex;
   flex-direction: column;
 
@@ -121,7 +137,7 @@
 
 /* ===== Project Image (MAGIC HERE) ===== */
 .project-image {
-  height: 420px;           /* قاب ثابت */
+  height: 420px;           
   overflow: hidden;
   position: relative;
   background: #0f172a;
@@ -129,11 +145,8 @@
 
 /* عکس عمداً بلندتر از قاب */
 .project-image img {
-  width: 100%;
-  height: auto;
-  min-height: 100px;       /* 👈 راز کار اینجاست */
+  width: 100%;  
   object-fit: contain;
-  transition: transform 2s ease;
 }
 
 .project-image-body {
@@ -145,14 +158,17 @@
 
 .project-image-header {
   height: var(--image-header-height);
-  background: rgba(255, 219, 89);
-  color: #000000ff;
+}
+
+.project-image-header,
+.project-btn {
+  background-color: #64a08bff;
+  color: #000;
   font-size: 14px;
   font-weight: 500;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
 }
 
 
@@ -177,17 +193,23 @@
 
 /* ===== Button ===== */
 .project-btn {
-  display: inline-block;
-  padding: 8px 22px;
-  border-radius: 999px;
-  border: 1px solid #38bdf8;
-  color: #38bdf8;
-  transition: .3s;
+  width: 100%;
+  height: var(--image-header-height);
+  text-decoration: none;
+
+  transition: background .25s ease;
+  border-bottom-left-radius: 14px;
+  border-bottom-right-radius: 14px;
 }
 
+
 .project-btn:hover {
-  background: #38bdf8;
-  color: #000;
+  background: #f74646ff;
+  color: #ffffffff;
+}
+.project-content {
+  padding: 0;       
+
 }
 
 
@@ -216,11 +238,5 @@ document.querySelectorAll('.project-card').forEach(card => {
 });
 
 </script>
-
-
-
-
-
-
 
 {% endblock %}
