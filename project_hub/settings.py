@@ -19,9 +19,9 @@ DEBUG = True
 ALLOWED_HOSTS = [
     "127.0.0.1",
     "localhost",
-    "sokiyan.ir",
-    ".sokiyan.ir",
-    "www.sokiyan.ir",
+    "tikaweb.ir",
+    ".tikaweb.ir",
+    "www.tikaweb.ir",
     ".onrender.com",
 ]
 
