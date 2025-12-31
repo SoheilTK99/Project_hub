@@ -17,12 +17,11 @@ SECRET_KEY = os.environ.get("SECRET_KEY", "dev-insecure-secret-key")
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    "127.0.0.1",
-    "localhost",
     "tikaweb.ir",
-    ".tikaweb.ir",
     "www.tikaweb.ir",
     ".onrender.com",
+    "localhost",
+    "127.0.0.1",
 ]
 
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
