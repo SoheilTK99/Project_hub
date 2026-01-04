@@ -12,7 +12,7 @@
             </div>
 
 
-            <div class="tm-col-right" style="padding-left: 140px;">
+            <div class="tm-col-right" style="padding-left: 80px;">
                 <nav class="navbar navbar-expand-lg" id="tm-main-nav">
                     <button class="navbar-toggler toggler-example mr-0 ml-auto" type="button" 
                         data-toggle="collapse" data-target="#navbar-nav" 
@@ -28,8 +28,11 @@
                                 <a class="nav-link tm-nav-link" href="{% url 'about' %}">درباره</a>
                             </li>
                             <li class="nav-item {% if request.path == '/service/' %}active{% endif %}">
-                                <a class="nav-link tm-nav-link" href="{% url 'service:list' %}">نمونه کار</a>
-                            </li>                            
+                                <a class="nav-link tm-nav-link" href="{% url 'service:list' %}">نمونه کارها</a>
+                            </li>    
+                            <li class="nav-item {% if request.path == '/service/' %}active{% endif %}">
+                                <a class="nav-link tm-nav-link" href="{% url 'service:list' %}">خدمات</a>
+                            </li>                                                     
                            <li class="nav-item {% if request.path == '/home/' %}active{% endif %}">
                                 <a class="nav-link tm-nav-link" href="{% url 'home' %}">صفحه اصلی <span class="sr-only">(current)</span></a>
                             </li> 
@@ -45,21 +48,27 @@
 <style>
 
     .site-header-bg {
-        background-color: #243768;
+        background-color: #3656a7ff;
         padding-bottom: 0px;
-        border-bottom-right-radius: 50px;
+        border-bottom-right-radius: 0px;
         border-bottom-left-radius: 50px;
     }
 
+    .tm-col-right {
+        font-family: 'Vazirmatn', 'IRANSans', sans-serif;
+      
+    }
+
     .site-logo {
-      margin-top: -10px;
-      width: 65px;
-      height: 65px;
+      margin-top: -12px;
+      width: 62px;
+      height: 62px;
     }
 
     .site-title {
-        margin-top: -10px;
+        margin-top: -12px;
         margin-bottom: -10px;
+        font-size: 38px;
     }
 
 </style>       
