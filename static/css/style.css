@@ -44,7 +44,7 @@ p { line-height: 1.9; }
 .navbar-expand-lg .navbar-nav .tm-nav-link {
     font-size: 1.2rem;
     font-weight: 400;
-    color: white;    
+    color: rgb(0, 0, 0);    
     padding-bottom: 0px; 
     
     
@@ -56,7 +56,7 @@ p { line-height: 1.9; }
 
 .nav-item.active .tm-nav-link,
 .nav-item:hover .tm-nav-link {
-    color: #9CC;
+    color: rgb(255, 255, 255);
 }
 
 /* Page Background */

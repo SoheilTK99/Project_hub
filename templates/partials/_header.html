@@ -3,10 +3,10 @@
         <div class="tm-row pt-4">
             <div class="tm-col-left">
                 <div class="tm-site-header media">
-                    <img src="/static/img/logo.png" alt="" class="site-logo">
+                    <img src="/static/img/logo9.png" alt="" class="site-logo">
                     <div class="media-body">
-                        <h1 class="site-title">TikaWeb</h1>
-                        <p class="tm-slogon">Let your ideas fly</p>
+                        {% comment %} <h1 class="site-title">TikaWeb</h1>
+                        <p class="tm-slogon">Let your ideas fly</p> {% endcomment %}
                     </div>        
                 </div>
             </div>
@@ -48,7 +48,16 @@
 <style>
 
     .site-header-bg {
-        background-color: #3656a7ff;
+        background: linear-gradient(
+        to left,
+        #000000ff 0%,
+        #232323ff 0%,
+        #726412ff 0%,
+        #ac971bff 0%,
+        #e3c100ff 0%,
+        #ffd040 50%,
+        #ffd040 50%
+    );
         padding-bottom: 0px;
         border-bottom-right-radius: 0px;
         border-bottom-left-radius: 50px;
@@ -61,8 +70,9 @@
 
     .site-logo {
       margin-top: -12px;
-      width: 62px;
-      height: 62px;
+      margin-bottom: 14px;
+      width: 150px;
+      height: 70px;
     }
 
     .site-title {
