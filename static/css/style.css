@@ -60,6 +60,20 @@ p { line-height: 1.9; }
 }
 
 /* Page Background */
+
+body.inner-page {
+    background: #ffffff url("../img/double-lined.png") repeat fixed;
+    color: #222;
+}
+
+/* حذف بک گراند اسلشی */
+body.inner-page .tm-bg {
+    display: none;
+}
+
+
+
+
 .tm-bg {
     position: absolute;
     left: 0;
