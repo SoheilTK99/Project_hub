@@ -191,20 +191,38 @@ hr { border-top: 1px solid white; }
 }
 
 .tm-site-footer {
-    padding: 0px 0 0px;
+    padding: 0px 0px 10px;
     margin-left: 280px !important;
     margin-right: 200px !important;
     max-width: 660px;
     font-size: 0.95rem;
+    color: black;
+    font-weight: 400;
    
 }
 
+/* فقط در صفحه اصلی */
+body.home-page .tm-site-footer {
+    padding: 0px 0px 0px;
+    color: white;
+}
+
+
 .tm-col-footer { padding-left: 0; }
+.tm-text-link { color: rgb(0, 0, 0); }
+
+body.home-page
 .tm-text-link { color: white; }
 
 .tm-text-link:hover,
 .tm-text-link:focus {
-    color: #9CC;
+    color: #c09c2f;
+}
+
+body.home-page 
+.tm-text-link:hover, 
+.tm-text-link:focus {
+    color: #ffd040;
 }
 
 /* Service */ 
@@ -240,11 +258,114 @@ textarea {
 .mb-85 { margin-bottom: 85px; }
 .tm-contact-main { max-width: 690px; }
 
+/* ================= CONTACT CARD PREMIUM DESIGN ================= */
+
 .tm-contact {
-    max-width: 420px;
-    margin-left: auto;
-    margin-right: auto;
+    position: relative;
+    z-index: 2;
+
+    max-width: 450px;
+    margin-left: -230px;
+    margin-right: 100px;
+
+    padding: 50px 55px 65px 55px;
+    border-radius: 35px;
+
+    /* رنگ جدید ملایم گرم */
+    background: linear-gradient(145deg, #f8f8f8, #ececec);
+
+    border: 1px solid rgba(0, 0, 0, 0.05);
+
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.7);
+
+    transition: all 0.35s ease;
 }
+
+/* Hover Lift Effect */
+.tm-contact:hover {
+    transform: translateY(-8px);
+    box-shadow:
+        0 40px 100px rgba(0, 0, 0, 0.65),
+        inset 0 1px 0 rgba(255, 255, 255, 0.07);
+}
+
+/* Soft Glow Behind Card */
+.tm-contact::after {
+    content: "";
+    position: absolute;
+    width: 130%;
+    height: 130%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(0,0,0,0.35) 0%, transparent 70%);
+    filter: blur(70px);
+    z-index: -1;
+}
+
+/* Brand Accent Line */
+.tm-contact::before {
+    content: "";
+    display: block;
+    width: 340px;
+    height: 4px;
+    background: linear-gradient(270deg, #f4c430, transparent);
+    border-radius: 3px;
+    margin-bottom: 35px;
+}
+
+/* ================= INPUT STYLE UPGRADE ================= */
+
+.form-control,
+textarea {
+    background: transparent;
+    border-bottom: 1px solid #bbb;
+}
+
+.form-control:focus,
+textarea:focus {
+    border-color: #f4c430;
+    box-shadow: 0 5px 20px rgba(244,196,48,0.15);
+}
+
+/* ================= BUTTON PREMIUM ================= */
+
+.tm-contact .btn-primary {
+    background: linear-gradient(135deg, #f4c430, #e6b800);
+    color: #000;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 30px;
+    transition: all 0.3s ease;
+}
+
+.tm-contact .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(244,196,48,0.4);
+}
+
+/* ================= INNER PAGE LIGHT VERSION ================= */
+
+body.inner-page .tm-contact {
+    background: #000000d6;
+    border: 1px solid #eee;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+}
+
+body.inner-page .form-control,
+body.inner-page textarea {
+    border-bottom: 1px solid #ccc;
+}
+
+body.inner-page .form-control:focus,
+body.inner-page textarea:focus {
+    border-color: #f4c430;
+    box-shadow: 0 5px 20px rgba(244,196,48,0.15);
+}
+
 
 .form-control::-webkit-input-placeholder { color: white; } /* Edge */  
 .form-control:-ms-input-placeholder { color: white; } /* Internet Explorer 10-11 */  
