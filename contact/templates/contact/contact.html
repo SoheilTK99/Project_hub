@@ -6,7 +6,7 @@
         <div class="tm-col-left"></div>
         <main class="tm-col-right tm-contact-main"> <!-- Content -->
             <section class="tm-content tm-contact">
-                <h2 class="mb-4 tm-content-title">ارتباط با من</h2>
+                {% comment %} <h2 class="mb-4 tm-content-title">ارتباط با من</h2> {% endcomment %}
 
 
                 <form id="contact-form" action="{% url 'contact' %}" method="POST">
@@ -17,7 +17,7 @@
                     </div>
 
                     <div class="form-group mb-4">
-                        <input type="email" name="email" class="form-control" style="font-family: Rubik, sans-serif; font-weight: 300;" placeholder="ایمیل" required />
+                        <input type="email" name="email" class="form-control" style="font-family: Rubik, sans-serif; font-weight: 300;" placeholder="ایمیل یا شماره تماس" required />
                     </div>
 
                     <div class="form-group mb-5">
@@ -28,7 +28,7 @@
                         <button type="submit" class="btn btn-big btn-primary">ارسال</button>
                     </div>
                 </form>
-
+                    <div class="bottom-accent"></div>
 
                 <br>
                 <br>
@@ -162,8 +162,10 @@
 
     .social-links-wrapper {
         position: relative;
-        display: inline-block;
+        
         direction: ltr;
+        display: flex;
+        justify-content: center;  /* وسط افقی */
 
     }
 

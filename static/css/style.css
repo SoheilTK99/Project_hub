@@ -176,7 +176,7 @@ hr { border-top: 1px solid white; }
 
 .btn-big {
     padding: 9px 40px;
-    font-size: 1rem;;
+    font-size: 1rem;
 }
 
 .btn-primary {
@@ -186,8 +186,11 @@ hr { border-top: 1px solid white; }
 }
 
 .btn-primary:hover {
-    background-color: #9CC;
-    color: black;
+    color: #000;
+    background-color: #ffffff;
+    box-shadow: 0 1px 17px rgba(255, 191, 0, 0.541);
+    transition: all 0.3s ease;
+    border: none;
 }
 
 .tm-site-footer {
@@ -263,13 +266,14 @@ textarea {
 .tm-contact {
     position: relative;
     z-index: 2;
-
+    margin-top: 0px;
     max-width: 450px;
     margin-left: -230px;
     margin-right: 100px;
+    margin-bottom: 10px;
 
     padding: 50px 55px 65px 55px;
-    border-radius: 35px;
+    border-radius: 40px;
 
     /* رنگ جدید ملایم گرم */
     background: linear-gradient(145deg, #f8f8f8, #ececec);
@@ -284,8 +288,7 @@ textarea {
 }
 
 /* Hover Lift Effect */
-.tm-contact:hover {
-    transform: translateY(-8px);
+.tm-contact:hover {  
     box-shadow:
         0 40px 100px rgba(0, 0, 0, 0.65),
         inset 0 1px 0 rgba(255, 255, 255, 0.07);
@@ -295,10 +298,6 @@ textarea {
 .tm-contact::after {
     content: "";
     position: absolute;
-    width: 130%;
-    height: 130%;
-    top: 50%;
-    left: 50%;
     transform: translate(-50%, -50%);
     background: radial-gradient(circle, rgba(0,0,0,0.35) 0%, transparent 70%);
     filter: blur(70px);
@@ -316,6 +315,15 @@ textarea {
     margin-bottom: 35px;
 }
 
+
+.bottom-accent {
+    width: 340px;
+    height: 4px;
+    background: linear-gradient(90deg, #f4c430, transparent);
+    border-radius: 3px;
+    margin: 35px auto 0 auto;
+}
+
 /* ================= INPUT STYLE UPGRADE ================= */
 
 .form-control,
@@ -331,20 +339,9 @@ textarea:focus {
 }
 
 /* ================= BUTTON PREMIUM ================= */
-
-.tm-contact .btn-primary {
-    background: linear-gradient(135deg, #f4c430, #e6b800);
-    color: #000;
-    font-weight: 600;
-    border: none;
-    border-radius: 10px;
-    padding: 10px 30px;
-    transition: all 0.3s ease;
-}
-
 .tm-contact .btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 30px rgba(244,196,48,0.4);
+    
+    box-shadow: 0 1px 17px rgba(244,196,48,0.4);
 }
 
 /* ================= INNER PAGE LIGHT VERSION ================= */
