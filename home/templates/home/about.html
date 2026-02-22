@@ -97,13 +97,34 @@
       padding: 0 0px;
       direction: rtl;
       text-align: right;
+      
     }
     .card {
-      background: #242a36ff;
+      background: #000000d6;
+      color: #fff;
       padding: 28px;
       border-radius: 12px;
       box-shadow: 0 6px 30px rgba(0, 0, 0, 0.4);
     }
+
+    .card::after {
+      content: "";
+      position: absolute;
+
+      top: 100px;        /* جایی که متن شروع میشه */
+      bottom: 170px;     /* جایی که قبل از CTA تموم شه */
+      right: 64.5%;        /* تقریبا وسط دو ستون */
+
+      width: 4px;
+
+      background: linear-gradient(
+          180deg, #f4c430, transparent
+      );
+
+      border-radius: 3px;
+    }
+
+
     h2 {
       margin-top: 0;
     }
@@ -113,6 +134,8 @@
       grid-template-columns: 2fr 1fr;
       gap: 24px;
       align-items: start;
+
+    
     }
     p.lead {
       color: #d9d9d9;
@@ -150,11 +173,7 @@
     }
     
     /* timeline */
-    .timeline {
-      margin-top: 20px;
-      border-left: 2px solid rgba(255, 255, 255, 0.04);
-      padding-left: 18px;
-    }
+
     .event {
       margin-bottom: 18px;
     }
@@ -197,8 +216,8 @@
     .cta {
       margin: 36px 0;
       padding: 20px;
-      border-radius: 10px;
-      background: linear-gradient(90deg, rgba(43, 182, 115, 0.06), rgba(23, 162, 184, 0.04));
+      border-radius: 16px;
+      background: linear-gradient(270deg, var(--accent), #17a3b8cc);
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -248,11 +267,13 @@
       </div>
     </div>
   </section>
-
+  
   <main class="container">
+    
     <article class="card">
       <div class="two-cols">
         <section>
+          
           <h2>مسیر حرفه‌ای من</h2>
           <br />
           <p>از اولین پروژه‌های دانشجویی تا همکاری با مشتریان مستقل، مسیر من حول یادگیری مداوم و ساختن محصولاتی است که هم پاسخ‌گو به نیاز کسب‌وکار باشد و هم تجربهٔ کاربری خوبی ارائه کند. در ادامه خلاصه‌ای از مهارت‌ها و تجربیاتم آمده است.</p>
@@ -272,7 +293,7 @@
             </div>
           </div>
         </section>
-
+          
         <aside>
           <h3>مهارت‌ها</h3>
           <br />
@@ -332,7 +353,7 @@
       <div class="cta" id="contact">
         <p>آماده‌ همکاری هستید؟</p>
         <div>
-          <a class="btn" href="/contact/">تماس بگیرید</a>
+          <a class="btn" href="/contact/">تماس با ما</a>
         </div>
       </div>
     </article>
