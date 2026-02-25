@@ -3,7 +3,7 @@ const initBg = (autoplay = true) => {
     const bgImgsNames = ['1.png', '2.png', '3.png'];
     const bgImgs = bgImgsNames.map(name => (window.STATIC_URL || '/static/') + 'img/' + name + '?v=' + Date.now());
 
-    $.backstretch(bgImgs, { duration: 8000, fade: 500 });
+    $.backstretch(bgImgs, { duration: 8000, fade: 800 });
 
     if (!autoplay) {
         $.backstretch('pause');
