@@ -1,9 +1,9 @@
 const initBg = (autoplay = true) => {
     $.backstretch('destroy', true);
-    const bgImgsNames = ['1.png', '2.png', '3.png'];
+    const bgImgsNames = ['7.png', '6.jpg', '4.jpg'];
     const bgImgs = bgImgsNames.map(name => (window.STATIC_URL || '/static/') + 'img/' + name + '?v=' + Date.now());
 
-    $.backstretch(bgImgs, { duration: 8000, fade: 800 });
+    $('.tm-bg-left').backstretch(bgImgs, { duration: 8000, fade: 800 });
 
     if (!autoplay) {
         $.backstretch('pause');
@@ -16,21 +16,6 @@ const setBg = id => {
     $.backstretch('show', id);
 }
 
-const setBgOverlay = () => {
-    const windowWidth = window.innerWidth;
-    const bgHeight = $('body').height();
-    const tmBgLeft = $('.tm-bg-left');
-
-    $('.tm-bg').height(bgHeight);
-
-    if (windowWidth > 768) {
-        tmBgLeft.css('border-left', `0`)
-            .css('border-top', `${bgHeight}px solid transparent`);
-    } else {
-        tmBgLeft.css('border-left', `${windowWidth}px solid transparent`)
-            .css('border-top', `0`);
-    }
-}
 
 $(document).ready(function () {
 
@@ -39,7 +24,6 @@ $(document).ready(function () {
 
         const autoplayBg = true;
         initBg(autoplayBg);
-        setBgOverlay();
 
         const bgControl = $('.tm-bg-control');
         bgControl.click(function () {
@@ -56,9 +40,8 @@ $(document).ready(function () {
             current.addClass('active');
         });
 
-        $(window).resize(function () {
-            setBgOverlay();
-        });
+
+    
 
     } else {
         // اگر صفحه داخلی بود، هر بک‌گراندی destroy شود

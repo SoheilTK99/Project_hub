@@ -1,6 +1,6 @@
 <header class="site-header-bg">
     <div class="tm-container">        
-        <div class="tm-row pt-4">
+        <div class="tm-row">
             <div class="tm-col-left">
                 <div class="tm-site-header media">
                     <a href="/home/#top" ><img src="/static/img/logo9.png" alt="" class="site-logo"></a>       
@@ -44,37 +44,81 @@
 <style>
 
     .site-header-bg {
+        display: flex;
+        align-items: center;
+        min-height: 98px;
+
+        /* ⭐ لایه‌بندی مهم */
+        position: sticky;   /* یا fixed */
+        top: 0;
+        z-index: 9999;
+
+        /* 🎨 استایل فعلی خودت */
         background: linear-gradient(
-        to left,
-        #000000ff 0%,
-        #232323ff 0%,
-        #726412ff 0%,
-        #ac971bff 0%,
-        #e3c100ff 0%,
-        #ffd040 50%,
-        #ffd040 50%
-    );
-        padding-bottom: 0px;
-        border-bottom-right-radius: 0px;
+            to left,
+            #000000ff 0%,
+            #232323ff 0%,
+            #726412ff 0%,
+            #ac971bff 0%,
+            #e3c100ff 0%,
+            #ffd040 50%,
+            #ffd040 50%
+        );
+
+        padding-bottom: 0;
+        border-bottom-right-radius: 0;
         border-bottom-left-radius: 50px;
     }
+
+    .home-page .site-header-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        min-height: 98px;
+        z-index: 1000;
+    }
+
+
 
     .tm-col-right {
         font-family: 'Vazirmatn', 'IRANSans', sans-serif;
       
     }
 
-    .site-logo  {
-      margin-top: -12px;
-      margin-bottom: 14px;
-      width: 150px;
-      height: 70px;
+    .site-logo {
+    margin: 0;
+    width: 150px;
+    height: 70px;
     }
 
     .site-title {
         margin-top: -12px;
-        margin-bottom: -10px;
+        margin-bottom: -100px;
         font-size: 38px;
+    }
+
+    .site-header-bg .tm-container,
+    .site-header-bg .tm-row {
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+    }
+    .tm-site-header {
+        margin: 0;
+    }
+
+    .site-header-bg .tm-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .tm-col-left,
+    .tm-col-right {
+        display: flex;
+        align-items: center;
     }
 
 </style>       
