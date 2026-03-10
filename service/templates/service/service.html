@@ -9,25 +9,25 @@
   <div class="portfolio-grid">
 
     {% for service in services %}
-      <article class="project-card">
+      <a href="{% url 'service:detail' service.pk %}" class="project-card-link">
+        <article class="project-card">
 
-        <div class="project-image">
-          <div class="project-image-header">
-            {{ service.name }}
+          <div class="project-image">
+            <div class="project-image-header">
+              {{ service.name }}
+            </div>
+
+            <div class="project-image-body">
+              <img src="{{ service.lable.url }}" alt="{{ service.name }}">
+            </div>
           </div>
 
-          <div class="project-image-body">
-            <img src="{{ service.lable.url }}" alt="{{ service.name }}">
+          <div class="project-content">
+            <span class="project-btn">نمایش جزئیات</span>
           </div>
-        </div>
 
-        <div class="project-content">
-          <a href="{% url 'service:detail' service.pk %}" class="project-btn">
-            نمایش جزئیات
-          </a>
-        </div>
-
-      </article>
+        </article>
+      </a>
     {% endfor %}
 
   </div>
@@ -36,195 +36,177 @@
 
 
 
-<style>
 
-.portfolio-fullwidth {
-  display: block !important;
-}
-
-
-.portfolio-fullwidth .tm-col-left {
-  display: none !important;
-}
-
-.portfolio-fullwidth .tm-col-right {
-  width: 100%;
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 0;
-  float: none;
-}
-
-
-/* ===== Portfolio Grid ===== */
-
-.project-bar {
-  height: var(--image-header-height);
-  background: rgba(255, 219, 89);
-  color: #000;
-  font-size: 14px;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  text-decoration: none;
-}
-
-
-
-.portfolio-section {
-  padding: 60px 0;
-}
-
-.portfolio-canvas {
-  width: 100vw;
-  margin-right: calc(-50vw + 50%);
-  margin-left: -500px;
-  display: flex;
-  justify-content: flex-end;
-}
-
-
-.portfolio-fullscreen {
-  width: 100vw;
-  padding: 80px 60px;
-  box-sizing: border-box;
-}
-
-.portfolio-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 32px;
-  width: 100%;
-  direction: rtl;
-}
-
-/* ===== Project Card ===== */
-.project-card {
-  background: #0f172a;
-  border-radius: 14px;
-  overflow: hidden;
-  transition: all .4s ease;
-  height: auto;             /* 👈 فقط این */
-  display: flex;
-  flex-direction: column;
-
-
-}
-
-.project-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 30px 60px rgba(0,0,0,.45);
-}
-
-:root {
-  --image-header-height: 46px;
-}
-
-
-/* ===== Project Image (MAGIC HERE) ===== */
-.project-image {
-  height: 420px;           
-  overflow: hidden;
-  position: relative;
-  background: #0f172a;
-}
-
-/* عکس عمداً بلندتر از قاب */
-.project-image img {
-  width: 100%;  
-  object-fit: contain;
-}
-
-.project-image-body {
-  height: calc(420px - var(--image-header-height));
-  overflow: hidden;
-  position: relative;
-}
-
-
-.project-image-header {
-  height: var(--image-header-height);
-}
-
-.project-image-header,
-.project-btn {
-  background-color: #60c2ff7c;
-  color: #ffffffff;
-  font-size: 14px;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-
-
-/* ===== Content ===== */
-.project-content {
-  padding: 24px;
-  text-align: right;
-  margin-top: auto;
-}
-
-.project-title {
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-
-.project-desc {
-  font-size: 14px;
-  opacity: .7;
-  margin-bottom: 20px;
-}
-
-/* ===== Button ===== */
-.project-btn {
-  width: 100%;
-  height: var(--image-header-height);
-  text-decoration: none;
-
-  transition: background .25s ease;
-  border-bottom-left-radius: 14px;
-  border-bottom-right-radius: 14px;
-}
-
-
-.project-btn:hover {
-  background: #f74646ff;
-  color: #ffffffff;
-}
-.project-content {
-  padding: 0;       
-
-}
-
-
-</style>
-
-
-<script>
-document.querySelectorAll('.project-card').forEach(card => {
-  const img = card.querySelector('.project-image-body img');
-  const body = card.querySelector('.project-image-body');
-
-  card.addEventListener('mouseenter', () => {
-    const scrollAmount = img.offsetHeight - body.offsetHeight;
-
-    if (scrollAmount > 5) {
-      const duration = scrollAmount / 100 * 0.9;
-      img.style.transition = `transform ${duration}s ease`;
-      img.style.transform = `translateY(-${scrollAmount}px)`;
+  <style>
+    .portfolio-fullwidth {
+      display: block !important;
     }
-  });
+    
+    .portfolio-fullwidth .tm-col-left {
+      display: none !important;
+    }
+    
+    .portfolio-fullwidth .tm-col-right {
+      width: 100%;
+      max-width: 100%;
+      margin: 0 auto;
+      padding: 0;
+      float: none;
+    }
+    
+    /* ===== Portfolio Grid ===== */
+    
+    .project-bar {
+      height: var(--image-header-height);
+      background: rgba(255, 219, 89);
+      color: #000;
+      font-size: 14px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      text-decoration: none;
+    }
+    
+    .portfolio-section {
+      padding: 60px 0;
+    }
+    
+    .portfolio-canvas {
+      width: 100vw;
+      margin-right: calc(-50vw + 50%);
+      margin-left: -500px;
+      display: flex;
+      justify-content: flex-end;
+    }
+    
+    .portfolio-fullscreen {
+      width: 100vw;
+      padding: 80px 60px;
+      box-sizing: border-box;
+    }
+    
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      width: 100%;
+      direction: rtl;
+    }
+    
+    /* ===== Project Card ===== */
+    .project-card {
+      background: #0f172a;
+      border-radius: 14px;
+      overflow: hidden;
+      transition: all 0.4s ease;
+      height: auto; /* 👈 فقط این */
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
+    }
+    
+    :root {
+      --image-header-height: 46px;
+    }
+    
+    /* ===== Project Image (MAGIC HERE) ===== */
+    .project-image {
+      height: 420px;
+      overflow: hidden;
+      position: relative;
+      background: #0f172a;
+    }
+    
+    /* عکس عمداً بلندتر از قاب */
+    .project-image img {
+      width: 100%;
+      object-fit: contain;
+    }
+    
+    .project-image-body {
+      height: calc(420px - var(--image-header-height));
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .project-image-header {
+      height: var(--image-header-height);
+    }
+    
+    .project-image-header,
+    .project-btn {
+      background-color: #60c2ff7c;
+      color: #ffffffff;
+      font-size: 14px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    /* ===== Content ===== */
+    .project-content {
+      padding: 24px;
+      text-align: right;
+      margin-top: auto;
+    }
+    
+    .project-title {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    
+    .project-desc {
+      font-size: 14px;
+      opacity: 0.7;
+      margin-bottom: 20px;
+    }
+    
+    /* ===== Button ===== */
+    .project-btn {
+      width: 100%;
+      height: var(--image-header-height);
+      text-decoration: none;
+    
+      transition: background 0.25s ease;
+      border-bottom-left-radius: 14px;
+      border-bottom-right-radius: 14px;
+    }
+    
+    .project-btn:hover {
+      background: #f74646ff;
+      color: #ffffffff;
+    }
+    .project-content {
+      padding: 0;
+    }
+  </style>
 
-  card.addEventListener('mouseleave', () => {
-    img.style.transition = 'transform 0.6s ease';
-    img.style.transform = 'translateY(0)';
-  });
-});
-
-</script>
-
+  <script>
+    document.querySelectorAll('.project-card').forEach((card) => {
+      const img = card.querySelector('.project-image-body img')
+      const body = card.querySelector('.project-image-body')
+    
+      card.addEventListener('mouseenter', () => {
+        const scrollAmount = img.offsetHeight - body.offsetHeight
+    
+        if (scrollAmount > 5) {
+          const duration = (scrollAmount / 100) * 0.9
+          img.style.transition = `transform ${duration}s ease`
+          img.style.transform = `translateY(-${scrollAmount}px)`
+        }
+      })
+    
+      card.addEventListener('mouseleave', () => {
+        img.style.transition = 'transform 0.6s ease'
+        img.style.transform = 'translateY(0)'
+      })
+    })
+  </script>
 {% endblock %}
