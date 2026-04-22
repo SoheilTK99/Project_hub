@@ -26,13 +26,14 @@
       max-width: 1100px;
       width: 100%;
       display: grid;
-      grid-template-columns: 0.8fr 1.2fr;
+      grid-template-columns: 0.73fr 1.27fr;
       gap: 10px;
       align-items: center;
+      margin-top: 25px;
     }
-    .hero h2{
-    margin-bottom: 23px;
-    }    
+    .hero h2 {
+      margin-bottom: 23px;
+    }
     .avatar {
       display: flex;
       flex-direction: column;
@@ -100,7 +101,6 @@
       padding: 0 0px;
       direction: rtl;
       text-align: right;
-      
     }
     .card {
       background: #000000d6;
@@ -109,25 +109,22 @@
       border-radius: 12px;
       box-shadow: 0 6px 30px rgba(0, 0, 0, 0.4);
     }
-
+    
     .card::after {
-      content: "";
+      content: '';
       position: absolute;
-
-      top: 100px;        /* جایی که متن شروع میشه */
-      bottom: 170px;     /* جایی که قبل از CTA تموم شه */
-      right: 64.5%;        /* تقریبا وسط دو ستون */
-
+    
+      top: 100px; /* جایی که متن شروع میشه */
+      bottom: 180px; /* جایی که قبل از CTA تموم شه */
+      right: 64.5%; /* تقریبا وسط دو ستون */
+    
       width: 4px;
-
-      background: linear-gradient(
-          180deg, #f4c430, transparent
-      );
-
+    
+      background: linear-gradient(180deg, #f4c430, transparent);
+    
       border-radius: 3px;
     }
-
-
+    
     h2 {
       margin-top: 15px;
     }
@@ -137,12 +134,10 @@
       grid-template-columns: 2fr 1fr;
       gap: 24px;
       align-items: start;
-
-    
     }
     p.lead {
       color: #d9d9d9;
-      line-height: 1.9;
+      line-height: 1.95;
     }
     
     /* skills */
@@ -157,9 +152,10 @@
       align-items: center;
     }
     .skill .label {
-      width: 110px;
+      width: 140px;
       text-align: left;
       font-weight: 600;
+      font-size: 16px;
     }
     .skill .bar {
       flex: 1;
@@ -173,16 +169,6 @@
       height: 100%;
       background: linear-gradient(90deg, var(--accent), #17a2b8);
       border-radius: 999px;
-    }
-    
-    /* timeline */
-
-    .event {
-      margin-bottom: 18px;
-    }
-    .event .meta {
-      font-size: 13px;
-      color: #9e9e9e;
     }
     
     /* values */
@@ -199,20 +185,39 @@
       text-align: center;
     }
     
-    /* tools */
-    .tools {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 18px;
-      text-align: center;
+    .why-title{
+      margin-top: 25px;
+      margin-bottom: 15px;
     }
-    .tool {
-      padding: 10px 12px;
-      background: var(--glass);
+
+    .why-list{
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .why-list li{
+      background: #2b2b2b;
+      padding: 10px 14px;
       border-radius: 8px;
-      font-size: 14px;
+      margin-bottom: 10px;
+      color: #ffffff;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      transition: 0.3s;
+    }
+
+    .why-list li::before{
+      content: "✔";
+      color: #2ecc71;
+      font-weight: bold;
+      margin-left: 8px;
+    }
+
+    .why-list li:hover{
+      background: #333;
+      transform: translateX(-3px);
     }
     
     /* CTA footer */
@@ -229,7 +234,14 @@
       margin: 0;
       font-weight: 600;
     }
-    
+
+    .gh{
+      gap: 8px;            /* فاصله آیکن و متن */
+      color: #f1c40f;      /* رنگ زرد */
+      margin-top: 10px;
+      font-weight: 600;
+    }    
+        
     /* responsive */
     @media (max-width: 900px) {
       .hero-inner {
@@ -265,56 +277,57 @@
       </div>
 
       <div style="color:#fff">
-        <h2> سهیل طالبی | طراح و توسعه‌دهنده وب </h2>
-        <h4> بنیان‌گذار تیکاوب </h4>
-        <p class="lead" style="text-align: justify; direction: rtl;"> با بیش از ۴ سال تجربه در پیاده‌سازی وب‌سایت‌های حرفه‌ای بر پایه Django و طراحی قالب‌های اختصاصی؛
-اگر به دنبال یک وب‌سایت حرفه‌ای با طراحی مدرن و کدنویسی استاندارد هستید، در تیکاوب می‌توانید پروژه‌ای اصولی و متناسب با نیاز کسب‌وکارتان داشته باشید.<br>
+        <h2>سهیل طالبی | طراح و برنامه‌نویس وب</h2>
 
-هر وب‌سایتی هرچقدر که کامل طراحی شود، تا زمانی که بازدید مناسب نداشته باشد، بازدهی لازم را نخواهد داشت. بنابراین پس از طراحی سایت، مرحله سئو و بهینه‌سازی نیز اهمیت زیادی پیدا می‌کند. در تیکاوب تلاش می‌شود وب‌سایت‌ها با رعایت اصول فنی سئو، ساختار استاندارد و سرعت مناسب پیاده‌سازی شوند تا بستر لازم برای دیده شدن در نتایج جستجوی گوگل فراهم باشد.
-          
-        
-        
-        
-        
-        
-        
+        <p class="lead" style="text-align: justify; direction: rtl;">
+          بنیان‌گذار <span style="font-weight: 900; color: white;">تیکاوب</span> با بیش از ۴ سال تجربه در پیاده‌سازی وب‌سایت‌های حرفه‌ای بر پایه Django و طراحی قالب‌های اختصاصی. اگر به دنبال یک وب‌سایت حرفه‌ای با و <span style="font-weight: 900; color: white;">طراحی مدرن و کدنویسی استاندارد</span> هستید، در تیکاوب می‌توانید پروژه‌ای اصولی و متناسب با نیاز کسب‌وکارتان داشته باشید.
+        </p>
+
+        <p class="lead" style="text-align: justify; direction: rtl;">
+          هر وب‌سایتی هرچقدر که کامل طراحی شود، تا زمانی که <span style="font-weight: 900; color: white;">بازدید مناسب</span> نداشته باشد بازدهی لازم را نخواهد داشت. بنابراین پس از طراحی سایت، مرحله <span style="font-weight: 900; color: white;">سئو و بهینه‌سازی</span>
+          نیز اهمیت زیادی پیدا می‌کند. در تیکاوب تلاش می‌شود وب‌سایت‌ها با رعایت اصول فنی سئو، ساختار استاندارد و سرعت مناسب پیاده‌سازی شوند تا بستر لازم برای دیده شدن در نتایج جستجوی گوگل فراهم باشد.
         </p>
       </div>
     </div>
   </section>
-  
+
   <main class="container">
-    
     <article class="card">
       <div class="two-cols">
         <section>
-          
-          <h2>مسیر حرفه‌ای من</h2>
+          <h2>روند انجام پروژه ها</h2>
           <br />
-          <p>از اولین پروژه‌های دانشجویی تا همکاری با مشتریان مستقل، مسیر من حول یادگیری مداوم و ساختن محصولاتی است که هم پاسخ‌گو به نیاز کسب‌وکار باشد و هم تجربهٔ کاربری خوبی ارائه کند. در ادامه خلاصه‌ای از مهارت‌ها و تجربیاتم آمده است.</p>
+          <p> در ابتدای هر پروژه نیازها و اهداف شما را دقیق بررسی می‌کنیم تا مطمئن شویم خروجی کار با ماهیت کسب‌وکارتان هماهنگ است. تمرکز ما روی ساخت وب‌سایت‌هایی است که در کنار ظاهر حرفه‌ای، از نظر سرعت، تجربه کاربری و ساختار فنی نیز استاندارد باشند. </p>
+          <p>فرآیند اجرای پروژه به شرح زیر است :</p>
+          <p>1️⃣  بررسی نیازها و هدف کسب‌وکار</p>
+          <p>2️⃣  طراحی ظاهر و ساختار صفحات</p>
+          <p>3️⃣ پیاده‌سازی فنی و توسعه سایت</p>
+          <p>4️⃣ بهینه‌سازی سرعت و سئو پایه</p>
+          <p>5️⃣ تست نهایی و تحویل پروژه</p>
 
-          <div class="timeline">
-            <div class="event">
-              <div class="meta">2020 — شروع برنامه‌نویسی</div>
-              <div>آغاز یادگیری HTML, CSS و JavaScript و علاقه‌مندی به طراحی رابط کاربری</div>
-            </div>
-            <div class="event">
-              <div class="meta">2023 — اولین پروژه تجاری</div>
-              <div>ایجاد وب‌سایت برای یک کسب‌وکار محلی با تمرکز بر سرعت و سئو</div>
-            </div>
-            <div class="event">
-              <div class="meta">2025 — سوق به سمت Full-stack</div>
-              <div>یادگیری Python و Django و راه‌اندازی سرویس‌های REST API</div>
-            </div>
-          </div>
+          <p>هدف ما در نهایت ارائه یک وب‌سایت حرفه‌ای و قابل اعتماد است که بتواند حضور آنلاین کسب‌وکار شما را تقویت کند.</p>
+          <a href="https://github.com/SoheilTK99" class="gh" target="_blank" rel="noopener">
+              <i class="fa-brands fa-github"></i>
+               مشاهده کارنامه فنی من 
+          </a>          
         </section>
-          
+
         <aside>
-          <h3>مهارت‌ها</h3>
+      <h3 class="why-title">چرا تیکاوب؟</h3>
+
+      <ul class="why-list">
+        <li> کدنویسی تمیز و اصولی </li>
+        <li>سرعت بالا و عملکرد بهینه</li>
+        <li>ساختار سازگار با اصول سئو</li>
+        <li> طراحی ریسپانسیو و هماهنگ با همه دستگاه ها </li>
+        <li>پشتیبانی 24 ساعته</li>
+      </ul>
           <br />
-          <div class="skills">
+          <h3>مهارت‌ها</h3>
+          
+          <div class="skills" style="direction: ltr;">
             <div class="skill">
-              <div class="label">HTML/CSS</div>
+              <div class="label">HTML & CSS</div>
               <div class="bar">
                 <i style="width:95%"></i>
               </div>
@@ -338,37 +351,26 @@
               </div>
             </div>
             <div class="skill">
-              <div class="label">PostgreSQL</div>
+              <div class="label">Database Design</div>
               <div class="bar">
                 <i style="width:70%"></i>
               </div>
             </div>
             <div class="skill">
-              <div class="label">DRF</div>
+              <div class="label">API Development</div>
               <div class="bar">
                 <i style="width:78%"></i>
               </div>
             </div>
           </div>
           <br />
-          <div style="margin-top:18px">
-            <h4>خدمات</h4>
-            <div class="tools">
-              <div class="tool">Back-end</div>
-              <div class="tool">Front-end</div>
-              <div class="tool">SEO</div>
-              <div class="tool">UI/UX</div>
-              <div class="tool">Responsive Design</div>
-              <div class="tool">Speed optimization</div>
-            </div>
-          </div>
         </aside>
       </div>
 
       <div class="cta" id="contact">
-        <p>آماده‌ همکاری هستید؟</p>
+        <p> برای شروع همکاری با ما در تماس باشید. </p>
         <div>
-          <a class="btn" href="/contact/">تماس با ما</a>
+          <a class="btn" href="/contact/">ارتباط با ما</a>
         </div>
       </div>
     </article>

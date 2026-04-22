@@ -1,0 +1,314 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  <section class="py-5">
+    <div class="container">
+      <div class="services-slider">
+        <img src="{% static 'img/u.png' %}" class="active" />
+        <img src="{% static 'img/o.png' %}" />
+        <img src="{% static 'img/y.png' %}" />
+      </div>
+
+      <!-- HERO -->
+      <div class="row align-items-center mb-5" style="padding-top: 200px;">
+        <div class="col-lg-6">
+          <h1 class="fw-bold mb-3">خدمات تخصصی طراحی سایت</h1>
+          <p class="mb-4">در تیکا وب ما فقط یک سایت طراحی نمی‌کنیم؛ ما یک ابزار حرفه‌ای برای رشد کسب‌وکار شما می‌سازیم. از طراحی رابط کاربری تا توسعه، بهینه‌سازی سرعت، سئو و پشتیبانی در کنار شما هستیم.</p>
+
+          <a href="#plans" class="btn btn-primary">مشاهده پلن‌ها</a>
+          <a href="#contact" class="btn btn-primary">مشاوره رایگان</a>
+        </div>
+        <div class="col-lg-6 mb-4">
+          <img src="{% static 'img/2.jpg' %}" class="img-fluid rounded shadow" />
+        </div>
+      </div>
+
+      <!-- FEATURES -->
+      <div class="text-center mb-5">
+        <h2 class="fw-bold mb-4">چرا طراحی سایت با تیکا وب؟</h2>
+
+        <div class="row g-4">
+          <div class="col-md-3 col-6">
+            <i class="fa-solid fa-mobile-screen-button fa-2x mb-3"></i>
+            <h5>ریسپانسیو واقعی</h5>
+            <p class="small">طراحی کاملاً سازگار با موبایل، تبلت و دسکتاپ.</p>
+          </div>
+
+          <div class="col-md-3 col-6">
+            <i class="fa-solid fa-gauge-high fa-2x mb-3"></i>
+            <h5>سرعت بالا</h5>
+            <p class="small">بهینه‌سازی کامل برای بارگذاری سریع صفحات.</p>
+          </div>
+
+          <div class="col-md-3 col-6">
+            <i class="fa-solid fa-magnifying-glass-chart fa-2x mb-3"></i>
+            <h5>سئو استاندارد</h5>
+            <p class="small">ساختار مناسب برای موتورهای جستجو.</p>
+          </div>
+
+          <div class="col-md-3 col-6">
+            <i class="fa-solid fa-headset fa-2x mb-3"></i>
+            <h5>پشتیبانی</h5>
+            <p class="small">پشتیبانی و توسعه بعد از تحویل پروژه.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PLANS -->
+      <div id="plans" class="mb-5">
+        <h2 class="text-center fw-bold mb-4">پلن‌های طراحی سایت</h2>
+
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="plan-card p-4 h-100">
+              <h4 class="fw-bold mb-3">سایت شرکتی</h4>
+
+              <ul class="small mb-4">
+                <li>صفحه اصلی حرفه‌ای</li>
+                <li>معرفی خدمات و درباره ما</li>
+                <li>فرم تماس</li>
+                <li>وبلاگ</li>
+                <li>طراحی ریسپانسیو</li>
+              </ul>
+
+              <div class="fw-bold mb-3">از X میلیون تومان</div>
+
+              <a href="#contact" class="btn-primary">درخواست این پلن</a>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="plan-card p-4 h-100">
+              <h4 class="fw-bold mb-3">سایت فروشگاهی</h4>
+
+              <ul class="small mb-4">
+                <li>مدیریت محصولات</li>
+                <li>سبد خرید</li>
+                <li>درگاه پرداخت</li>
+                <li>پنل مدیریت سفارش‌ها</li>
+                <li>سیستم تخفیف</li>
+              </ul>
+
+              <div class="fw-bold mb-3">از Y میلیون تومان</div>
+
+              <a href="#contact" class="btn-primary">درخواست این پلن</a>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="plan-card p-4 h-100">
+              <h4 class="fw-bold mb-3">سایت اختصاصی</h4>
+
+              <ul class="small mb-4">
+                <li>تحلیل کامل نیاز پروژه</li>
+                <li>طراحی UI اختصاصی</li>
+                <li>سیستم مدیریت اختصاصی</li>
+                <li>اتصال به API</li>
+                <li>قابل توسعه</li>
+              </ul>
+
+              <div class="fw-bold mb-3">قیمت توافقی</div>
+
+              <a href="#contact" class="btn-primary">مشاوره پروژه</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROCESS -->
+      <div class="mb-5">
+        <h2 class="text-center fw-bold mb-4">فرآیند طراحی سایت</h2>
+
+        <div class="row text-center g-4">
+          <div class="col-md-3 col-6">
+            <div class="border rounded p-3 bg-white">
+              <h4 class="fw-bold">1</h4>
+              <h6>مشاوره</h6>
+              <p class="small">بررسی نیاز کسب‌وکار شما.</p>
+            </div>
+          </div>
+
+          <div class="col-md-3 col-6">
+            <div class="border rounded p-3 bg-white">
+              <h4 class="fw-bold">2</h4>
+              <h6>طراحی UI</h6>
+              <p class="small">طراحی رابط کاربری حرفه‌ای.</p>
+            </div>
+          </div>
+
+          <div class="col-md-3 col-6">
+            <div class="border rounded p-3 bg-white">
+              <h4 class="fw-bold">3</h4>
+              <h6>توسعه</h6>
+              <p class="small">پیاده‌سازی کامل سایت.</p>
+            </div>
+          </div>
+
+          <div class="col-md-3 col-6">
+            <div class="border rounded p-3 bg-white">
+              <h4 class="fw-bold">4</h4>
+              <h6>تحویل</h6>
+              <p class="small">تست، آموزش و تحویل پروژه.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ -->
+      <div class="mb-5">
+        <h2 class="text-center fw-bold mb-4">سوالات متداول</h2>
+
+        <div class="accordion" id="faq">
+          <div class="accordion-item">
+            <h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#q1">طراحی سایت چقدر زمان می‌برد؟</button></h2>
+            <div id="q1" class="accordion-collapse collapse">
+              <div class="accordion-body">معمولاً بین ۲ تا ۶ هفته بسته به نوع پروژه زمان نیاز است.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#q2">آیا سایت برای موبایل هم بهینه است؟</button></h2>
+            <div id="q2" class="accordion-collapse collapse">
+              <div class="accordion-body">بله، تمام سایت‌ها به صورت کاملاً ریسپانسیو طراحی می‌شوند.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CONTACT CTA -->
+      <div id="contact" class="p-5 border rounded text-center bg-white">
+        <h2 class="fw-bold mb-3">شروع همکاری</h2>
+        <p class="mb-4">برای دریافت مشاوره رایگان و بررسی پروژه خود با ما تماس بگیرید.</p>
+
+        <a href="/contact" class="btn-primary">ارتباط با ما</a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const serviceSlides = document.querySelectorAll('.services-slider img')
+    let serviceIndex = 0
+    
+    setInterval(() => {
+      serviceSlides[serviceIndex].classList.remove('active')
+      serviceIndex = (serviceIndex + 1) % serviceSlides.length
+      serviceSlides[serviceIndex].classList.add('active')
+    }, 4000)
+  </script>
+
+  <style>
+    .py-5 {
+      direction: rtl;
+      text-align: right;
+    }
+    
+    .services-slider {
+      position: relative;
+      width: 100%;
+      height: 550px;
+      border-radius: 18px;
+      overflow: hidden;
+    
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.22), 0 8px 16px rgba(0, 0, 0, 0.12);
+    
+      /* یک گرادیان خیلی کم برای براق‌تر شدن */
+      background: linear-gradient(145deg, #ffffff, #f4f4f4);
+    }
+    
+    .services-slider img {
+      position: absolute;
+      width: 130%;
+      height: 550px;
+      object-fit: contain;
+      left: 50%;
+      transform: translateX(-50%);
+    
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+    
+    .services-slider img.active {
+      opacity: 1;
+    }
+
+
+  .plan-card{
+    position: relative;
+    background: linear-gradient(145deg, #1a1a1a, #3d3d3d 50%, #000000);
+    color: white;
+    border-radius:18px;
+    padding:28px;
+    border:1px solid rgba(0,0,0,0.05);
+
+    box-shadow:0 10px 25px rgba(0,0,0,0.06);
+
+    transition:
+    transform .25s ease,
+    box-shadow .25s ease,
+    border-color .25s ease;
+  }
+
+  .plan-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 25px 55px rgba(0,0,0,0.15);
+    border-color:rgba(0,0,0,0.08);
+  }
+
+  .plan-card h4{
+    font-size:1.25rem;
+    font-weight:700;
+    color:white;
+    text-align: center;
+  }
+
+
+  .plan-card ul{
+    padding-right:0;
+    list-style:none;
+  }
+
+  .plan-card ul li{
+    position:relative;
+    padding-right:18px;
+    margin-bottom:8px;
+    color:white;
+  }
+
+  .plan-card ul li::before{
+    content:"";
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:#f4c400;
+    position:absolute;
+    right:0;
+    top:9px;
+  }
+
+
+  .plan-card .btn-primary {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center !important;
+
+
+
+    background: #ffffff;
+    color: #000000;
+  }
+
+
+  .plan-card .btn-primary:hover {
+      background: #f4c400; /* در حالت hover زرد بشه */
+      color: #000; /* متن سیاه */
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25), 0 40px 40px rgba(0, 0, 0, 0.15);
+  }
+
+
+
+
+
+  </style>
+{% endblock %}

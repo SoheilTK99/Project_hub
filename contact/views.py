@@ -22,7 +22,7 @@ def contact_view(request):
                 ["soheil.ce.99@gmail.com"],        # to  ← ایمیل خودت
             )
 
-            messages.success(request, "پیامت با موفقیت ارسال شد 🌱")
+            messages.success(request, "پیامت با موفقیت ارسال شد ")
             return redirect("contact")  # یا هر صفحه‌ای که دوست داری
     else:
         form = ContactForm()

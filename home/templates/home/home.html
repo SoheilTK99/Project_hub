@@ -1,234 +1,216 @@
 {% extends 'base.html' %}
-{% block body_class %}home-page{% endblock %}
 {% block content %}
-{% load static %}
+  {% load static %}
 
-
-<div class="home-hero">
-
-  <!-- پس‌زمینه -->
-  <div class="tm-bg">
-      <div class="tm-bg-left"></div>
-      <div class="tm-bg-right"></div>
-  </div>
-
-  <div class="tm-row">
-
-    <div class="tm-col-left"></div>
-
-    <main class="tm-col-right">
-      <section class="tm-content">
-
-        <h2 class="mb-4 tm-content-title">خدمات تخصصی طراحی سایت</h2>
-
-        <p class="mb-4">
-          همه‌چیز از یک لپ‌تاپ قدیمی و فنجون قهوه شروع شد! <br>
-          به تیکاوب خوش آمدید؛ جایی که تصمیم گرفتیم ایده‌ها رو از کاغذ به صفحه نمایش بیاریم و قدم در حوزه طراحی وبسایت بزاریم.
-        </p>
-
-        <p class="mb-4">
-          هر پروژه یک دستاورد و هر سایت یک ابزار رشد.
-          با استانداردهای جهانی، سرعت بالا و خدمات پس از طراحی.
-        </p>
-
-        <a href="/service/" class="btn btn-primary mb-5">
-          مشاهده نمونه کارها
-        </a>
-
-        <!-- 🔥 لوگوهای مهارت‌ها (الان داخل ستون راست هستن) -->
-        <div class="skills-wrapper">
-
-          <div class="skill-item">
-            <div class="skill-spin">
-              <i class="fab fa-html5 fa-lg text-danger"></i>
-            </div>
-            <small>HTML/CSS</small>
-          </div>
-
-          <div class="skill-item">
-            <div class="skill-spin">
-              <i class="fab fa-js-square fa-lg text-warning"></i>
-            </div>
-            <small>JavaScript</small>
-          </div>
-
-          <div class="skill-item">
-            <div class="skill-spin">
-              <i class="fab fa-python fa-lg text-info"></i>
-            </div>
-            <small>Python</small>
-          </div>
-
-          <div class="skill-item">
-            <div class="skill-spin">
-              <i class="fas fa-leaf fa-lg text-success"></i>
-            </div>
-            <small>Django</small>
-          </div>
-
-          <div class="skill-item">
-            <div class="skill-spin">
-              <i class="fas fa-exchange-alt fa-lg text-cyan"></i>
-            </div>
-            <small>REST API</small>
-          </div>
-
-          <div class="skill-item">
-            <div class="skill-spin">
-              <i class="fas fa-database fa-lg text-primary"></i>
-            </div>
-            <small>PostgreSQL</small>
-          </div>
-
+  <div class="home-hero">
+    <div class="tm-row">
+      <!-- ستون چپ (اسلایدر) -->
+      <div class="tm-col-left">
+        <div class="hero-slider">
+          <img src="{% static 'img/4.jpg' %}" class="active" />
+          <img src="{% static 'img/5.jpg' %}" />
+          <img src="{% static 'img/8.jpg' %}" />
         </div>
+      </div>
 
-      </section>
-    </main>
+      <!-- ستون راست (متن) -->
+      <main class="tm-col-right">
+        <section class="tm-content">
+          <h2 class="mb-4 tm-content-title">خدمات تخصصی طراحی سایت</h2>
 
+          <p class="mb-4">همه‌چیز از یک لپ‌تاپ قدیمی و فنجون قهوه شروع شد! به تیکاوب خوش آمدید؛ جایی که تصمیم گرفتیم ایده‌ها رو از کاغذ به صفحه نمایش بیاریم.</p>
+
+          <p class="mb-4">هر پروژه یک دستاورد و هر سایت یک ابزار رشد. با استانداردهای جهانی، سرعت بالا و خدمات پس از طراحی.</p>
+
+          <a href="/portfolio/" class="btn btn-primary mb-5">مشاهده نمونه کارها</a>
+
+          <!-- 🔥 لوگوهای مهارت‌ها (الان داخل ستون راست هستن) -->
+          <div class="skills-wrapper">
+            <div class="skill-item">
+              <div class="skill-spin">
+                <i class="fab fa-html5 fa-lg text-danger"></i>
+              </div>
+              <small>HTML/CSS</small>
+            </div>
+
+            <div class="skill-item">
+              <div class="skill-spin">
+                <i class="fab fa-js-square fa-lg text-warning"></i>
+              </div>
+              <small>JavaScript</small>
+            </div>
+
+            <div class="skill-item">
+              <div class="skill-spin">
+                <i class="fab fa-python fa-lg text-info"></i>
+              </div>
+              <small>Python</small>
+            </div>
+
+            <div class="skill-item">
+              <div class="skill-spin">
+                <i class="fas fa-leaf fa-lg text-success"></i>
+              </div>
+              <small>Django</small>
+            </div>
+
+            <div class="skill-item">
+              <div class="skill-spin">
+                <i class="fas fa-exchange-alt fa-lg text-cyan"></i>
+              </div>
+              <small>REST API</small>
+            </div>
+
+            <div class="skill-item">
+              <div class="skill-spin">
+                <i class="fas fa-database fa-lg text-primary"></i>
+              </div>
+              <small>PostgreSQL</small>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
   </div>
-
-</div>
-<style>
-
-
-
-
-.home-hero {
-    position: relative;
-    min-height: 100vh;
-    padding-top: 98px;   /* فقط برای محتوا، نه بک‌گراند */
-    z-index: 1;
-}
-
-.home-hero .tm-bg {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    z-index: -1;
-    pointer-events: none;   /* ✅ FIX */
-}
-
-/* سمت چپ (عکس یا هرچی داری) */
-.home-hero .tm-bg-left {
-    width: 38%;
-    height: 100%;
-    background: url("{% static 'img/hero.jpg' %}") center/cover no-repeat;
-}
-
-.home-hero .tm-bg-right {
-    width: 62%;
-    height: 100%;
-    background-color: #000000;
-}
-
-
-
-
-.home .site-header-bg {
-    position: sticky;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 9999;
-    background: transparent;
-    backdrop-filter: blur(6px);
-    background: rgba(20, 35, 70, 0.85);    
-}
-
-.home-hero .tm-row {
-    display: flex;
-}
-
-
-
-.home-hero .tm-col-right {
-    display: flex;
-    align-items: center;   /* وسط عمودی */
-}
-
-
-
-
-
-
-.home-hero .tm-bg-left {
-    clip-path: polygon(0 0, 100% 0, 75% 100%, 0% 100%);
-}
-
-
-.home-hero .tm-content {
-    max-width: 650px;      /* جلوگیری از کش اومدن متن */
-    margin-right: 8vw;     /* فاصله از راست */
-    margin-left: auto;     /* هل دادن به مرکز */
-}
-
-.tm-content {
-    animation: heroFade 1s ease forwards;
-    opacity: 0;
-    transform: translateX(40px);
-}
-
-@keyframes heroFade {
-    to {
+  <style>
+    .home-hero {
+      position: relative;
+      min-height: 100vh;
+    }
+    
+    .home .site-header-bg {
+      position: sticky;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 9999;
+      background: transparent;
+      backdrop-filter: blur(6px);
+      background: rgba(20, 35, 70, 0.85);
+    }
+    
+    .home-hero .tm-row {
+      display: flex;
+      margin: 0;
+    }
+    
+    .home-hero .tm-col-right {
+      display: flex;
+      align-items: center; /* وسط عمودی */
+    }
+    
+    .home-hero .tm-bg-left {
+      clip-path: polygon(0 0, 100% 0, 75% 100%, 0% 100%);
+    }
+    
+    .home-hero .tm-content {
+      max-width: 650px; /* جلوگیری از کش اومدن متن */
+      margin-right: 8vw; /* فاصله از راست */
+      margin-left: auto; /* هل دادن به مرکز */
+    }
+    
+    .tm-content {
+      animation: heroFade 1s ease forwards;
+      opacity: 0;
+      transform: translateX(40px);
+    }
+    
+    @keyframes heroFade {
+      to {
         opacity: 1;
         transform: translateX(0);
+      }
     }
-}
+    
+    .skills-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-top: 120px;
+    }
+    
+    .skill-item {
+      text-align: center;
+      color: white;
+      font-size: 1rem;
+    }
+    
+    .skill-spin {
+      width: 55px;
+      height: 55px;
+      margin: 0 auto 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      transition: 0.4s ease;
+      font-size: 22px;
+    }
+    
+    .skill-spin:hover {
+      transform: scale(1.15);
+      background: rgba(0, 212, 255, 0.25);
+      box-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
+    }
+    
+    .hero-slider {
+      width: 100%;
+      height: 100vh;
+      margin-left: -20px;
+      overflow: hidden;
+      clip-path: polygon(0 0, 80% 0, 60% 100%, 0% 100%);
+      position: relative;
+    }
+    
+    .hero-slider img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute; /* عکس‌ها روی هم قرار می‌گیرند */
+      top: 0;
+      left: 0;
+      opacity: 0; /* در حالت عادی مخفی */
+      transition: opacity 0.8s ease-in-out; /* انیمیشن نرم رفت و برگشت */
+      z-index: 1;
+    }
+    
+    .hero-slider img.active {
+      opacity: 1;
+      z-index: 2;
+    }
+    
+    .home-hero .tm-col-left {
+      width: 40%;
+      padding: 0;
+      margin-top: -98px;
+    }
+    
+    .home-hero .tm-col-right {
+      width: 60%;
+    }
+    
+    /* موبایل: ۳ تا در ردیف، کوچیک */
+    @media (max-width: 768px) {
+      .col-4 {
+        flex: 0 0 33.333%;
+        max-width: 33.333%;
+      }
+      .skill-spin {
+        width: 40px;
+        height: 40px;
+      }
+      .django-logo {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+      }
+      h6.small {
+        font-size: 0.75rem;
+      }
+    }
+  </style>
 
-
-
-
-.skills-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    margin-top: 120px;
-
-}
-
-.skill-item {
-    text-align: center;
-    color: white;
-    font-size: 1.rem;
-}
-
-.skill-spin {
-    width: 55px;
-    height: 55px;
-    margin: 0 auto 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.08);
-    transition: 0.4s ease;
-    font-size: 22px;
-}
-
-.skill-spin:hover {
-    transform: scale(1.15);
-    background: rgba(0,212,255,0.25);
-    box-shadow: 0 0 15px rgba(0,212,255,0.5);
-}
-
-
-
-/* موبایل: ۳ تا در ردیف، کوچیک */
-@media (max-width: 768px) {
-  .col-4 {
-    flex: 0 0 33.333%;
-    max-width: 33.333%;
-  }
-  .skill-spin { width: 40px; height: 40px; }
-  .django-logo { width: 40px; height: 40px; font-size: 1rem; }
-  h6.small { font-size: 0.75rem; }
-}
-</style>
-
-
-  
   <div class="tm-row">
     <div class="tm-col-left text-center">
       <ul class="tm-bg-controls-wrapper">
@@ -238,11 +220,37 @@
       </ul>
     </div>
     <div class="tm-col-right tm-col-footer"></div>
-  </div> 
+  </div>
 
-
-
-
-
-
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const slides = document.querySelectorAll('.hero-slider img')
+      const dots = document.querySelectorAll('.tm-bg-control')
+      let currentSlide = 0
+    
+      function showSlide(index) {
+        // حذف کلاس active از تمام عکس‌ها و دایره‌ها
+        slides.forEach((s) => s.classList.remove('active'))
+        dots.forEach((d) => d.classList.remove('active'))
+    
+        // اضافه کردن کلاس active به اسلاید و دایره فعلی
+        slides[index].classList.add('active')
+        dots[index].classList.add('active')
+        currentSlide = index
+      }
+    
+      // قابلیت کلیک روی دایره‌ها
+      dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+          showSlide(index)
+        })
+      })
+    
+      // تعویض خودکار هر ۵ ثانیه
+      setInterval(() => {
+        let nextSlide = (currentSlide + 1) % slides.length
+        showSlide(nextSlide)
+      }, 5000)
+    })
+  </script>
 {% endblock %}

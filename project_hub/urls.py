@@ -26,9 +26,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', TemplateView.as_view(template_name='home/home.html'), name='home'),
     path('about/', TemplateView.as_view(template_name='home/about.html'), name='about'),
-    path('service/', include('service.urls')),
+    path('portfolio/', include('portfolio.urls')),
     path('contact/', include('contact.urls')),
-     
+    path('webdesign/', TemplateView.as_view(template_name='service/webdesign.html'), name='webdesign'),
+    path('seo/', TemplateView.as_view(template_name='service/seo.html'), name='seo'),     
 ] 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

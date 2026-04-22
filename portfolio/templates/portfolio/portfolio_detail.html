@@ -1,0 +1,413 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <style>
+    /* --- portfolio Detail (scoped) -------------------------------------------- */
+    .srv-d-wrap {
+      direction: rtl;
+      text-align: right;
+      color: #e9eef6;
+    }
+    .srv-d-container {
+      width: min(1300px, 92vw);
+      margin-inline: auto;
+      padding: 16px 0;
+    }
+    
+    /* رنگ‌ها فقط برای این بخش—با تم خودت می‌تونی عوض کنی */
+    :root {
+      --srvd-border: #bfc2c7ff;
+      --srvd-muted: #9aa6b2;
+      --srvd-badge: #cfe1ff;
+    }
+    
+    /* هِرو */
+    .srv-d-hero {
+      display: grid;
+      gap: 24px;
+      background: linear-gradient(180deg, #101722, #0c1118);
+      border: 1px solid var(--srvd-border);
+      border-radius: 16px;
+      padding: 25px;
+      margin-bottom: 15px;
+    }
+
+    .srv-d-hero-2{
+      display: grid;
+      gap: 24px;
+      background: linear-gradient(180deg, #101722, #0c1118);
+      border: 1px solid var(--srvd-border);
+      border-radius: 16px;
+      padding: 8px;
+      margin-bottom: 15px;
+    }
+
+
+    @media (max-width: 900px) {
+      .srv-d-hero {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .srv-d-poster {
+      aspect-ratio: 4/3;
+      background: #0b0f16;
+      border: 1px solid var(--srvd-border);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    .srv-d-poster img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    
+    .srv-d-title-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .srv-d-title {
+      margin: 6px 0;
+      font-weight: 900;
+      letter-spacing: -0.3px;
+      font-size: clamp(22px, 4.2vw, 34px);
+    }
+    .srv-d-badge {
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--srvd-border);
+      background: #0e151e;
+      color: var(--srvd-badge);
+    }
+    .srv-d-muted {
+      color: var(--srvd-muted);
+    }
+    
+    /* مشخصات کلیدی */
+    .srv-d-kv {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      margin: 12px 0 8px;
+    }
+    .srv-d-kv .it {
+      border: 1px solid var(--srvd-border);
+      background: #0e141d;
+      padding: 10px 12px;
+      border-radius: 12px;
+      font-size: 14px;
+      color: #cbd6e7;
+    }
+    .srv-d-kv .k {
+      color: var(--srvd-muted);
+      font-size: 12px;
+      display: block;
+      margin-bottom: 6px;
+    }
+    
+    /* توضیح بلند */
+    .srv-d-long {
+      border: 1px dashed var(--srvd-border);
+      background: #0c1016;
+      padding: 14px;
+      border-radius: 12px;
+      color: #c6d1e3;
+      line-height: 1.9;
+    }
+    
+    /* گالری */
+    .srv-d-gallery {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      margin-top: 12px;
+    }
+    .srv-d-thumb {
+      aspect-ratio: 16/10;
+      border: 1px solid var(--srvd-border);
+      border-radius: 12px;
+      overflow: hidden;
+      background: #0b0f16;
+      cursor: pointer;
+    }
+    .srv-d-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    
+    /* لایت‌باکس */
+    .srv-d-lb {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      z-index: 9999;
+    }
+    .srv-d-lb.open {
+      display: flex;
+    }
+    .srv-d-lb img {
+      max-width: min(1100px, 92vw);
+      max-height: 80vh;
+      border-radius: 16px;
+      border: 1px solid #334;
+    }
+    .srv-d-lb .close {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      font-size: 14px;
+      border: 1px solid var(--srvd-border);
+      background: #0d141d;
+      color: #eaeef6;
+      padding: 8px 12px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    
+
+  </style>
+
+  <div class="srv-d-wrap">
+    <div class="srv-d-container">
+
+
+      <!-- گالری تصاویر (فقط یک سوییپر) -->
+      <section class="srv-d-hero-2">
+        {% if images %}
+          <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+              {% for img in images %}
+                <div class="swiper-slide">
+                  <img src="{{ img.url }}" alt="{{ portfolio.name }} - {{ forloop.counter }}" loading="lazy">
+                </div>
+              {% endfor %}
+            </div>
+
+            <!-- ناوبری و پیجینیشن اختیاری -->
+            <div class="swiper-pagination"></div>
+          </div>
+        {% endif %}
+      </section>
+
+
+
+      <!-- هرو: پوستر + اطلاعات اصلی -->
+      <section class="srv-d-hero">
+
+
+        <div>
+          <div class="srv-d-title-row">
+            <h1 class="srv-d-title">{{ portfolio.name }}</h1>
+            {% if portfolio.category %}
+              <span class="srv-d-badge">{{ portfolio.category }}</span>
+            {% endif %}
+          </div>
+
+          {% if portfolio.short_discription %}
+            <p class="srv-d-muted" style="margin:6px 0 12px">{{ portfolio.short_discription }}</p>
+          {% endif %}
+
+          <div class="srv-d-kv">
+            {% if portfolio.status %}
+              <div class="it">
+                <span class="k">وضعیت</span>{{ portfolio.status }}
+              </div>
+            {% endif %}
+
+
+
+            {% if portfolio.frontend %}
+              <div class="it">
+                <span class="k">فرانت‌اند</span>{{ portfolio.frontend }}
+              </div>
+            {% endif %}
+            {% if portfolio.backend %}
+              <div class="it">
+                <span class="k">بک‌اند</span>{{ portfolio.backend }}
+              </div>
+            {% endif %}
+            {% if portfolio.pages %}
+            <div class="it">
+              <span class="k">تعداد صفحات</span>{{ portfolio.pages }}
+            </div>
+            {% endif %} 
+            {% if portfolio.delivery_time %}
+              <div class="it">
+                <span class="k">زمان تحویل</span>{{ portfolio.delivery_time }}
+              </div>
+            {% endif %}
+            {% if portfolio.pagespeed %}
+              <div class="it">
+                <span class="k">PageSpeed</span>{{ portfolio.pagespeed }}
+              </div>
+            {% endif %}                                   
+            {% if portfolio.hosting %}
+              <div class="it">
+                <span class="k">هاستینگ</span>{{ portfolio.hosting }}
+              </div>
+            {% endif %}
+            {% if portfolio.authentication %}
+              <div class="it">
+                <span class="k">احراز هویت</span>{{ portfolio.authentication }}
+              </div>
+            {% endif %}
+            {% if portfolio.database %}
+              <div class="it">
+                <span class="k">پایگاه داده</span>{{ portfolio.database }}
+              </div>
+            {% endif %}
+            {% if portfolio.media_management_system %}
+              <div class="it">
+                <span class="k"> سیستم مدیریت محتوا</span>{{ portfolio.media_management_system }}
+              </div>
+            {% endif %}
+
+            {% if portfolio.target_devices %}
+              <div class="it">
+                <span class="k">دستگاه های هدف</span>{{ portfolio.target_devices }}
+              </div>
+            {% endif %}  
+            {% if portfolio.language %}
+              <div class="it">
+                <span class="k">زبان</span>{{ portfolio.language }}
+              </div>
+            {% endif %}            
+            
+
+
+
+
+            {% if portfolio.link %}
+              <div class="it" style= "font-size: 17px; font-weight: 400;">
+                <span class="k">لینک</span>
+                <a href="https://{{ portfolio.link }}" target="_blank" rel="noopener" style="color:#9ec5ff">{{ portfolio.link }}</a>
+              </div>
+            {% endif %}
+            
+
+
+          </div>
+          <br>
+          {% if portfolio.long_discription %}
+            <div class="srv-d-long">{{ portfolio.long_discription }}</div>
+          {% endif %}
+
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <br>
+          
+          <a href="https://{{ portfolio.link }}" class="btn btn-primary" 
+          style="
+          width: 410px;
+          margin-bottom: 15px;
+          margin-top: 15px;
+          margin-right: 420px;
+          border-radius: 10px;
+
+            ">مشاهده آنلاین</a>
+
+        </div>
+      </section>
+
+      
+      
+
+
+
+
+   
+
+    </div>
+  </div>
+
+  <script>
+    /* --- Lightbox ------------------------------------------------------------ */
+    ;(() => {
+      const lb = document.getElementById('srv-d-lb')
+      const lbImg = lb?.querySelector('img')
+      const gallery = document.getElementById('srv-d-gallery')
+    
+      gallery?.addEventListener('click', (e) => {
+        const fig = e.target.closest('.srv-d-thumb')
+        if (!fig) return
+        lbImg.src = fig.querySelector('img').src
+        lb.classList.add('open')
+      })
+    
+      lb?.addEventListener('click', (e) => {
+        if (e.target === lb || e.target.classList.contains('close')) lb.classList.remove('open')
+      })
+    
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') lb.classList.remove('open')
+      })
+    })()
+  </script>
+
+
+  <script>
+    /* --- Swiper ------------------------------------------------------------ */
+    document.addEventListener('DOMContentLoaded', function () {
+      new Swiper('.mySwiper', {
+        loop: true,
+        slidesPerView: 1,
+        spaceBetween: 10,
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false
+        },
+        pagination: { el: '.mySwiper .swiper-pagination', clickable: true },
+        navigation: {
+          nextEl: '.mySwiper .swiper-button-next',
+          prevEl: '.mySwiper .swiper-button-prev'
+        },
+        // اگر RTL می‌خوای و بدنه سایت RTL هست:
+        // rtl: true  // نسخه‌های جدید نیاز ندارند؛ جهت را از CSS می‌گیرند
+      });
+    });
+  </script>
+
+  <style>
+    /* اندازهٔ ظرف اسلایدر */
+    .mySwiper { width: 100%; height: 100%; }
+
+    /* تصویر داخل اسلاید */
+    .mySwiper .swiper-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* اگه نسبت تصاویر متفاوته، خوب جواب می‌ده */
+      display: block;
+      border-radius: 16px;
+    }
+
+
+
+    .mySwiper .swiper-pagination-bullet {
+        background: #ff3f3fff !important;  /* خاکستری روشن */
+
+    }
+    .mySwiper .swiper-pagination-bullet-active {
+        background: #ff0000ff !important;  /* آبی روشن */
+    
+    }
+
+    
+
+  </style>
+
+{% endblock %}

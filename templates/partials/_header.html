@@ -18,17 +18,25 @@
                     <div class="collapse navbar-collapse tm-nav" id="navbar-nav">
                         <ul class="navbar-nav text-uppercase">
                             <li class="nav-item {% if request.path == '/contact/' %}active{% endif %}">
-                                <a class="nav-link tm-nav-link" href="{% url 'contact' %}"> تماس با ما </a>
+                                <a class="nav-link tm-nav-link" href="{% url 'contact' %}"> ارتباط با ما </a>
                             </li>
                             <li class="nav-item {% if request.path == '/about/' %}active{% endif %}">
                                 <a class="nav-link tm-nav-link" href="{% url 'about' %}">درباره تیکاوب</a>
                             </li>
-                            <li class="nav-item {% if request.path == '/service/' %}active{% endif %}">
-                                <a class="nav-link tm-nav-link" href="{% url 'service:list' %}">نمونه کارها</a>
+                            <li class="nav-item {% if request.path == '/portfolio/' %}active{% endif %}">
+                                <a class="nav-link tm-nav-link" href="{% url 'portfolio:list' %}">نمونه کارها</a>
                             </li>    
-                            <li class="nav-item {% if request.path == '/service/' %}active{% endif %}">
-                                <a class="nav-link tm-nav-link" href="{% url 'service:list' %}">خدمات</a>
-                            </li>                                                     
+                            <li class="nav-item dropdown" style="direction: rtl;">
+                                <a class="nav-link tm-nav-link dropdown-toggle" href="#" id="servicesDropdown"
+                                role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    خدمات
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right text-right">
+                                    <a class="dropdown-item" href="{% url 'webdesign' %}">طراحی سایت</a>
+                                    <a class="dropdown-item" href="{% url 'seo' %}">سئو سایت</a>
+                                </div>
+                            </li>                                                    
                            <li class="nav-item {% if request.path == '/home/' %}active{% endif %}">
                                 <a class="nav-link tm-nav-link" href="{% url 'home' %}">صفحه اصلی <span class="sr-only">(current)</span></a>
                             </li> 
@@ -120,5 +128,99 @@
         display: flex;
         align-items: center;
     }
+
+    {% comment %} .dropdown-menu{
+        display: block;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        transition-delay: 0s;
+        border-radius: 4px;
+        right: 0;
+        left: auto;
+        width: 100%;
+        overflow: hidden; /* برای اینکه گوشه‌ها تمیز گرد شوند */
+        padding: 0;
+    }
+
+    .dropdown-item{
+        background-color: #e3e3e3;
+        color: #000000;        
+        margin: 0;
+    }
+
+    .nav-item.dropdown:hover .dropdown-menu{
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        transition-delay: 0.25s; /* مکث قبل از باز شدن */     
+    }
+
+.dropdown-menu{
+    background: #222;
+
+    box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+    padding: 0;
+}
+
+.dropdown-item{
+    color: #eee;
+    padding: 12px 16px;
+}
+
+.dropdown-item:hover{
+    background: #444;
+} {% endcomment %}
+
+
+
+
+/* حالت بسته */
+.navbar .dropdown-menu {
+    display: block;               /* برای کنترل با opacity */
+    opacity: 0;
+    visibility: hidden;
+    transform-origin: top;        /* محور انیمیشن از بالا */
+    transform: translateY(-10px); /* کمی بالاتر */
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease,
+        visibility 0.25s ease;
+    background-color: #1f1f1f;    /* مثل عکس: تیره */
+    border-radius: 4px;
+    padding: 6px 0;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+    z-index: 1000;
+}
+
+/* وقتی روی "خدمات" می‌روی */
+.nav-item.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);     /* از بالا میاد پایین */
+}
+
+/* آیتم‌ها داخل منو */
+.navbar .dropdown-item {
+    color: #ffffff;
+    padding: 10px 18px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    transition: background-color 0.2s ease, padding-right 0.2s ease;
+}
+
+/* خط بین آیتم‌ها */
+.navbar .dropdown-item + .dropdown-item {
+    border-top: 1px solid #333;
+}
+
+/* hover روی آیتم‌ها */
+.navbar .dropdown-item:hover {
+    background-color: #e6b800;   /* یک رنگ تاکیدی / به دلخواه */
+    padding-right: 22px;         /* کمی حرکت برای حس اکشن */
+}
+
+
 
 </style>       

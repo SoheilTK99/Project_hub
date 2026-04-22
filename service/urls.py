@@ -1,12 +1,8 @@
+# service/urls.py
 from django.urls import path
-from .import views
-
-app_name = 'service'
+from django.views.generic import TemplateView
 
 urlpatterns = [
-    path('', views.service_list, name='list'),
-    path('<int:pk>/', views.service_detail, name='detail'),
-    
+    path('webdesign/', TemplateView.as_view(template_name='service/webdesign.html'), name='webdesign'),
+    path('seo/', TemplateView.as_view(template_name='service/seo.html'), name='seo'),
 ]
-
-
