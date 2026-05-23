@@ -3,13 +3,34 @@
   {% load static %}
 
   <div class="home-hero">
+    <!-- ردیف اصلی اسلایدر + متن -->
     <div class="tm-row">
       <!-- ستون چپ (اسلایدر) -->
       <div class="tm-col-left">
         <div class="hero-slider">
-          <img src="{% static 'img/4.jpg' %}" class="active" />
-          <img src="{% static 'img/5.jpg' %}" />
-          <img src="{% static 'img/8.jpg' %}" />
+          <div class="slide intro-slide active">
+            <div class="intro-brand">
+              <img src="{% static 'img/logo9.png' %}" alt="TikaWeb Logo" class="intro-logo" />
+              <h1 class="intro-title">طراحی سایت، فراتر از کدنویسی</h1>
+            </div>
+          </div>
+
+          <div class="slide" data-btn-text="نمایش خدمات" data-btn-link="/services/">
+            <img src="{% static 'img/5.jpg' %}" />
+          </div>
+
+          <div class="slide" data-btn-text="نمایش خدمات" data-btn-link="/portfolio/">
+            <img src="{% static 'img/8.jpg' %}" />
+          </div>
+
+          <div class="slide" data-btn-text="تماس با ما" data-btn-link="/contact/">
+            <img src="{% static 'img/4.jpg' %}" />
+          </div>
+
+          <!-- دکمه مشترک -->
+          <div class="slide-btn-wrapper">
+            <a id="heroBtn" class="btn-primary"></a>
+          </div>
         </div>
       </div>
 
@@ -24,7 +45,7 @@
 
           <a href="/portfolio/" class="btn btn-primary mb-5">مشاهده نمونه کارها</a>
 
-          <!-- 🔥 لوگوهای مهارت‌ها (الان داخل ستون راست هستن) -->
+          <!-- مهارت‌ها -->
           <div class="skills-wrapper">
             <div class="skill-item">
               <div class="skill-spin">
@@ -67,15 +88,23 @@
               </div>
               <small>PostgreSQL</small>
             </div>
-          </div>
+          </div> <!-- پایان skills-wrapper -->
         </section>
       </main>
-    </div>
-  </div>
+    </div> <!-- پایان tm-row -->
+
+    <!-- دات‌ها: صحیح داخل Hero قرار گرفت -->
+    <ul class="tm-bg-controls-wrapper">
+      <li class="tm-bg-control active" data-id="0"></li>
+      <li class="tm-bg-control" data-id="1"></li>
+      <li class="tm-bg-control" data-id="2"></li>
+    </ul>
+  </div> <!-- پایان home-hero -->
+
   <style>
     .home-hero {
       position: relative;
-      min-height: 100vh;
+      height: 75vh;
     }
     
     .home .site-header-bg {
@@ -92,15 +121,6 @@
     .home-hero .tm-row {
       display: flex;
       margin: 0;
-    }
-    
-    .home-hero .tm-col-right {
-      display: flex;
-      align-items: center; /* وسط عمودی */
-    }
-    
-    .home-hero .tm-bg-left {
-      clip-path: polygon(0 0, 100% 0, 75% 100%, 0% 100%);
     }
     
     .home-hero .tm-content {
@@ -126,12 +146,12 @@
       display: flex;
       flex-wrap: wrap;
       gap: 30px;
-      margin-top: 120px;
+      margin-top: 60px;
     }
     
     .skill-item {
       text-align: center;
-      color: white;
+      color: black;
       font-size: 1rem;
     }
     
@@ -159,98 +179,199 @@
       height: 100vh;
       margin-left: -20px;
       overflow: hidden;
-      clip-path: polygon(0 0, 80% 0, 60% 100%, 0% 100%);
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
       position: relative;
     }
     
-    .hero-slider img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      position: absolute; /* عکس‌ها روی هم قرار می‌گیرند */
-      top: 0;
-      left: 0;
-      opacity: 0; /* در حالت عادی مخفی */
-      transition: opacity 0.8s ease-in-out; /* انیمیشن نرم رفت و برگشت */
+    .hero-slider .slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transform: scale(1.05);
+      transition: all 1.5s ease-in-out;
       z-index: 1;
     }
     
-    .hero-slider img.active {
+    .hero-slider .slide.active {
       opacity: 1;
+      transform: scale(1);
       z-index: 2;
     }
     
+    .slide-btn-wrapper {
+      position: absolute;
+      bottom: 120px;
+      left: 53%;
+      transform: translateX(-50%);
+      z-index: 3;
+    }
+    
+    .hero-slider .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
     .home-hero .tm-col-left {
-      width: 40%;
+      flex: 0 0 45% !important;
+      max-width: 45% !important;
       padding: 0;
       margin-top: -98px;
     }
     
     .home-hero .tm-col-right {
-      width: 60%;
+      flex: 0 0 55% !important;
+      max-width: 55% !important;
+      display: flex;
+      align-items: center;
     }
     
-    /* موبایل: ۳ تا در ردیف، کوچیک */
-    @media (max-width: 768px) {
-      .col-4 {
-        flex: 0 0 33.333%;
-        max-width: 33.333%;
+    .tm-bg-controls-wrapper {
+      position: absolute;
+      top: 570px;
+      left: 22.5%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 5px;
+      z-index: 5;
+      opacity: 0;
+      pointer-events: none;
+    }
+    
+    .tm-bg-controls-wrapper.show-dots {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    
+    .tm-site-footer {
+      display: none;
+    }
+    
+    .intro-slide {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #0f172a; /* یا هر رنگ برندت */
+      position: relative;
+    }
+    
+    .intro-brand {
+      text-align: center;
+      color: #fff;
+      animation: introFadeUp 1.2s ease forwards;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    
+    .intro-logo {
+      width: 140px;
+      max-width: 45%;
+      height: auto;
+      margin-bottom: 18px;
+      animation: logoPop 1s ease forwards;
+    }
+    
+    .intro-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin: 0;
+      line-height: 1.8;
+      letter-spacing: -0.3px;
+    }
+    
+    @keyframes introFadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
       }
-      .skill-spin {
-        width: 40px;
-        height: 40px;
+    }
+    
+    @keyframes logoPop {
+      0% {
+        opacity: 0;
+        transform: scale(0.85);
       }
-      .django-logo {
-        width: 40px;
-        height: 40px;
-        font-size: 1rem;
-      }
-      h6.small {
-        font-size: 0.75rem;
+      100% {
+        opacity: 1;
+        transform: scale(1);
       }
     }
   </style>
 
-  <div class="tm-row">
-    <div class="tm-col-left text-center">
-      <ul class="tm-bg-controls-wrapper">
-        <li class="tm-bg-control active" data-id="0"></li>
-        <li class="tm-bg-control" data-id="1"></li>
-        <li class="tm-bg-control" data-id="2"></li>
-      </ul>
-    </div>
-    <div class="tm-col-right tm-col-footer"></div>
-  </div>
-
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      const slides = document.querySelectorAll('.hero-slider img')
+      const slides = document.querySelectorAll('.hero-slider .slide')
       const dots = document.querySelectorAll('.tm-bg-control')
-      let currentSlide = 0
+      const dotsWrapper = document.querySelector('.tm-bg-controls-wrapper')
+      const heroBtn = document.getElementById('heroBtn')
     
-      function showSlide(index) {
-        // حذف کلاس active از تمام عکس‌ها و دایره‌ها
+      let currentSlide = 0
+      let introPassed = false
+    
+      function updateButton(index) {
+        const text = slides[index].dataset.btnText
+        const link = slides[index].dataset.btnLink
+    
+        if (text && link) {
+          heroBtn.textContent = text
+          heroBtn.href = link
+          heroBtn.style.display = 'inline-block'
+        } else {
+          heroBtn.style.display = 'none'
+        }
+      }
+    
+      function setActiveSlide(index) {
         slides.forEach((s) => s.classList.remove('active'))
         dots.forEach((d) => d.classList.remove('active'))
     
-        // اضافه کردن کلاس active به اسلاید و دایره فعلی
-        slides[index].classList.add('active')
-        dots[index].classList.add('active')
+        if (slides[index]) slides[index].classList.add('active')
+        if (index > 0) {
+          const dotIndex = index - 1 // مهم‌ترین خط
+          if (dots[dotIndex]) dots[dotIndex].classList.add('active')
+        }
+    
+        // نمایش دات‌ها فقط برای اسلایدهای بعد از intro (ایندکس > 0)
+        if (index > 0) {
+          dotsWrapper.classList.add('show-dots')
+        } else {
+          dotsWrapper.classList.remove('show-dots')
+        }
+    
+        updateButton(index)
         currentSlide = index
       }
     
-      // قابلیت کلیک روی دایره‌ها
+      function showSlide(index) {
+        if (introPassed && index === 0) {
+          index = 1
+        }
+    
+        setActiveSlide(index)
+    
+        if (currentSlide > 0) {
+          introPassed = true
+        }
+      }
+    
       dots.forEach((dot, index) => {
         dot.addEventListener('click', () => {
-          showSlide(index)
+          showSlide(index + 1)
         })
       })
     
-      // تعویض خودکار هر ۵ ثانیه
       setInterval(() => {
-        let nextSlide = (currentSlide + 1) % slides.length
+        let nextSlide = currentSlide + 1
+    
+        if (nextSlide >= slides.length) {
+          nextSlide = 1
+        }
+    
         showSlide(nextSlide)
       }, 5000)
+    
+      // مقداردهی اولیه: دات‌ها مخفی (چون index=0 است)
+      setActiveSlide(0)
     })
   </script>
 {% endblock %}

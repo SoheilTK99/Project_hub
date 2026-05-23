@@ -66,6 +66,7 @@ body.inner-page {
     color: #222;
 }
 
+
 /* حذف بک گراند اسلشی */
 body.inner-page .tm-bg {
     display: none;
@@ -80,13 +81,7 @@ html, body {
 
 
 
-.tm-bg-controls-wrapper {
-    position: absolute;
-    bottom: 30px;
-    left: 15%;
-    transform: translateX(-50%);
-    z-index: 5;
-}
+
 
 .tm-bg-control {
     display: inline-block;
@@ -173,8 +168,8 @@ hr { border-top: 1px solid white; }
 }
 
 .btn-primary:hover {
-    background: #f4c400;        /* در حالت hover زرد بشه */
-    color: #000;                /* متن سیاه */
+    background: #f4c400;       
+    color: #000;                
     box-shadow:
         0 10px 20px rgba(0,0,0,0.25),
         0 40px 40px rgba(0,0,0,0.15);  
@@ -187,7 +182,7 @@ hr { border-top: 1px solid white; }
     font-size: 0.95rem;
     color: black;
     font-weight: 400;
-    text-align: center;    /* وسط چین شدن متن */
+    text-align: center;  
 }
 
 
@@ -409,10 +404,7 @@ body.inner-page textarea:focus {
 
     .tm-bg-right { height: calc(100% - 200px); }
 
-    .tm-bg-controls-wrapper {
-        margin-left: 0;
-        margin-top: 50px;
-    }
+
 
     .tm-content {
         max-height: none;

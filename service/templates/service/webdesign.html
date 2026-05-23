@@ -2,13 +2,36 @@
 {% load static %}
 {% block content %}
   <section class="py-5">
-    <div class="container">
-      <div class="services-slider">
-        <img src="{% static 'img/u.png' %}" class="active" />
-        <img src="{% static 'img/o.png' %}" />
-        <img src="{% static 'img/y.png' %}" />
+    <div class="services-slider-wrapper">
+      <div class="slide active">
+        <div class="slide-text">
+          <h1>طراحی سایت فروشگاهی</h1>
+        </div>
+        <div class="slide-image">
+          <img src="{% static 'img/p1.png' %}" />
+        </div>
       </div>
 
+      <div class="slide">
+        <div class="slide-text">
+          <h1>طراحی سایت پزشکی</h1>
+        </div>
+        <div class="slide-image">
+          <img src="{% static 'img/s1.png' %}" />
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-text">
+          <h1>طراحی سایت خبری</h1>
+        </div>
+        <div class="slide-image">
+          <img src="{% static 'img/d1.png' %}" />
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
       <!-- HERO -->
       <div class="row align-items-center mb-5" style="padding-top: 200px;">
         <div class="col-lg-6">
@@ -54,6 +77,57 @@
         </div>
       </div>
 
+      <!-- PROCESS (Sticky Scroll) -->
+      <div id="process" class="mb-5 py-5 position-relative">
+        <h2 class="text-center fw-bold mb-5">فرآیند طراحی سایت</h2>
+
+        <div class="row">
+          <!-- ستون راست: متن مراحل -->
+          <div class="col-lg-6 process-text-column">
+            <div class="process-step" data-step="1">
+              <div class="step-content">
+                <span class="step-num">1</span>
+                <h3 class="fw-bold mb-3">مشاوره و نیازسنجی</h3>
+                <p>در این مرحله ما به دقت به ایده‌ها و اهداف کسب‌وکار شما گوش می‌دهیم. نیازهای پروژه، مخاطبان هدف و امکانات مورد نیاز را بررسی کرده و بهترین استراتژی را پیشنهاد می‌دهیم.</p>
+              </div>
+            </div>
+
+            <div class="process-step" data-step="2">
+              <div class="step-content">
+                <span class="step-num">2</span>
+                <h3 class="fw-bold mb-3">طراحی رابط کاربری (UI/UX)</h3>
+                <p>پس از تایید استراتژی، وایرفریم و طرح گرافیکی سایت (UI) را مختص برند شما خلق می‌کنیم. هدف ما خلق تجربه‌ای لذت‌بخش و کاربری آسان برای مشتریان شماست.</p>
+              </div>
+            </div>
+
+            <div class="process-step" data-step="3">
+              <div class="step-content">
+                <span class="step-num">3</span>
+                <h3 class="fw-bold mb-3">کدنویسی و توسعه</h3>
+                <p>طرح‌های تایید شده توسط تیم برنامه‌نویسی با جدیدترین تکنولوژی‌ها و رعایت کامل استانداردهای سئو و سرعت، به یک سایت واقعی و کاملاً ریسپانسیو تبدیل می‌شوند.</p>
+              </div>
+            </div>
+
+            <div class="process-step" data-step="4">
+              <div class="step-content">
+                <span class="step-num">4</span>
+                <h3 class="fw-bold mb-3">تست، آموزش و راه‌اندازی</h3>
+                <p>پس از تست‌های نهایی و رفع ایرادات احتمالی، پنل مدیریت به شما آموزش داده می‌شود و سایت روی دامنه اصلی شما لانچ شده و آماده جذب مشتری خواهد بود.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ستون چپ: گرافیک چسبان -->
+          <div class="col-lg-6 d-none d-lg-block">
+            <div class="sticky-wrapper">
+              <div class="process-visual-card shadow-lg" id="dynamic-visual-card">
+                <!-- SVG ها اینجا لود می‌شوند -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- PLANS -->
       <div id="plans" class="mb-5">
         <h2 class="text-center fw-bold mb-4">پلن‌های طراحی سایت</h2>
@@ -76,6 +150,7 @@
 
                 <a href="#contact" class="btn-primary">جزئیات پلن</a>
               </div>
+
               <div class="card-back">
                 <ul class="small mb-4">
                   <li>صفحه اصلی حرفه‌ای</li>
@@ -84,10 +159,12 @@
                   <li>وبلاگ</li>
                   <li>طراحی ریسپانسیو</li>
                 </ul>
+
                 <button class="btn-primary">بازگشت</button>
               </div>
             </div>
           </div>
+
           <div class="col-md-4">
             <div class="plan-card">
               <div class="card-front">
@@ -105,23 +182,8 @@
 
                 <a href="#contact" class="btn-primary">جزئیات پلن</a>
               </div>
-              <div class="card-back">
-                <ul class="small mb-4">
-                  <li>صفحه اصلی حرفه‌ای</li>
-                  <li>معرفی خدمات و درباره ما</li>
-                  <li>فرم تماس</li>
-                  <li>وبلاگ</li>
-                  <li>طراحی ریسپانسیو</li>
-                </ul>
-                <button class="btn-primary">بازگشت</button>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="plan-card">
-              <div class="card-front">
-                <h4 class="fw-bold mb-3">سایت فروشگاهی</h4>
 
+              <div class="card-back">
                 <ul class="small mb-4">
                   <li>مدیریت محصولات</li>
                   <li>سبد خرید</li>
@@ -130,71 +192,39 @@
                   <li>سیستم تخفیف</li>
                 </ul>
 
-                <div class="fw-bold mb-3">از Y میلیون تومان</div>
-
-                <a href="#contact" class="btn-primary">جزئیات پلن</a>
-              </div>
-              <div class="card-back">
-                <ul class="small mb-4">
-                  <li>صفحه اصلی حرفه‌ای</li>
-                  <li>معرفی خدمات و درباره ما</li>
-                  <li>فرم تماس</li>
-                  <li>وبلاگ</li>
-                  <li>طراحی ریسپانسیو</li>
-                </ul>
                 <button class="btn-primary">بازگشت</button>
               </div>
             </div>
           </div>
-        </div>
-      </div>
 
-      <!-- PROCESS (Sticky Scroll) -->
-      <div id="process" class="mb-5 py-5 position-relative">
-        <h2 class="text-center fw-bold mb-5">فرآیند طراحی سایت</h2>
+          <div class="col-md-4">
+            <div class="plan-card">
+              <div class="card-front">
+                <h4 class="fw-bold mb-3">سایت اختصاصی</h4>
 
-        <div class="row">
-          <!-- ستون راست: متن مراحل -->
-          <div class="col-lg-6 process-text-column">
-            <!-- در اینجا به جای عکس و آیکون، فقط شماره مرحله را با دیتا-استپ می‌دهیم -->
-            <div class="process-step" data-step="1">
-              <div class="step-content">
-                <span class="step-num">1</span>
-                <h3 class="fw-bold mb-3">مشاوره و نیازسنجی</h3>
-                <p>در این مرحله ما به دقت به ایده‌ها و اهداف کسب‌وکار شما گوش می‌دهیم. نیازهای پروژه، مخاطبان هدف و امکانات مورد نیاز را بررسی کرده و بهترین استراتژی را پیشنهاد می‌دهیم.</p>
+                <ul class="small mb-4">
+                  <li>طراحی کاملاً اختصاصی</li>
+                  <li>امکانات سفارشی</li>
+                  <li>پنل مدیریت حرفه‌ای</li>
+                  <li>سئو تکنیکال</li>
+                  <li>پشتیبانی ویژه</li>
+                </ul>
+
+                <div class="fw-bold mb-3">از Z میلیون تومان</div>
+
+                <a href="#contact" class="btn-primary">جزئیات پلن</a>
               </div>
-            </div>
 
-            <div class="process-step" data-step="2">
-              <div class="step-content">
-                <span class="step-num">2</span>
-                <h3 class="fw-bold mb-3">طراحی رابط کاربری (UI/UX)</h3>
-                <p>پس از تایید استراتژی، وایرفریم و طرح گرافیکی سایت (UI) را مختص برند شما خلق می‌کنیم. هدف ما خلق تجربه‌ای لذت‌بخش و کاربری آسان (UX) برای مشتریان شماست.</p>
-              </div>
-            </div>
+              <div class="card-back">
+                <ul class="small mb-4">
+                  <li>طراحی کاملاً اختصاصی</li>
+                  <li>امکانات سفارشی</li>
+                  <li>پنل مدیریت حرفه‌ای</li>
+                  <li>سئو تکنیکال</li>
+                  <li>پشتیبانی ویژه</li>
+                </ul>
 
-            <div class="process-step" data-step="3">
-              <div class="step-content">
-                <span class="step-num">3</span>
-                <h3 class="fw-bold mb-3">کدنویسی و توسعه</h3>
-                <p>طرح‌های تایید شده توسط تیم برنامه‌نویسی با جدیدترین تکنولوژی‌ها و رعایت کامل استانداردهای سئو و سرعت، به یک سایت واقعی و کاملاً ریسپانسیو تبدیل می‌شوند.</p>
-              </div>
-            </div>
-
-            <div class="process-step" data-step="4">
-              <div class="step-content">
-                <span class="step-num">4</span>
-                <h3 class="fw-bold mb-3">تست، آموزش و راه‌اندازی</h3>
-                <p>پس از تست‌های نهایی و رفع ایرادات احتمالی، پنل مدیریت به شما آموزش داده می‌شود و سایت بر روی دامنه اصلی شما لانچ شده و آماده جذب مشتری خواهد بود.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- ستون چپ: گرافیک چسبان -->
-          <div class="col-lg-6 d-none d-lg-block">
-            <div class="sticky-wrapper">
-              <div class="process-visual-card shadow-lg" id="dynamic-visual-card">
-                <!-- SVG ها اینجا جاگذاری میشوند -->
+                <button class="btn-primary">بازگشت</button>
               </div>
             </div>
           </div>
@@ -238,29 +268,64 @@
       text-align: right;
     }
     
-    .services-slider {
-      position: relative;
+    .services-slider-wrapper {
       width: 100%;
-      height: 550px;
-      border-radius: 18px;
+      height: 750px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+      margin-top: -200px;
       overflow: hidden;
-      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.22), 0 8px 16px rgba(0, 0, 0, 0.12);
-      background: linear-gradient(145deg, #ffffff, #f4f4f4);
-    }
+      background-image: linear-gradient(to top, #fcffa500, #faff6fcb), url(' img/double-lined.png');
+      -webkit-mask-image: linear-gradient(to bottom, black 0%, black 75%, rgba(0, 0, 0, 0.5) 88%, transparent 100%);
+      mask-image: linear-gradient(to bottom, black 0%, black 75%, rgba(0, 0, 0, 0.5) 88%, transparent 100%);
     
-    .services-slider img {
+      backdrop-filter: blur(5px);
+    }
+    .slide {
+      bottom: -20px;
       position: absolute;
-      width: 130%;
-      height: 550px;
-      object-fit: contain;
-      left: 50%;
-      transform: translateX(-50%);
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       opacity: 0;
       transition: opacity 1s ease;
     }
     
-    .services-slider img.active {
+    .slide.active {
       opacity: 1;
+    }
+    
+    .slide-text {
+      width: 60%;
+      padding-right: 120px;
+    }
+    
+    .slide-text h1 {
+      transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+      transform: translateX(50px); /* شروع از سمت راست */
+      opacity: 0;
+      font-size: 42px;
+      font-weight: 800;
+      color: #000000;
+    }
+    
+    .slide.active .slide-text h1 {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    
+    .slide-image {
+      width: 100%;
+    }
+    
+    .slide-image img {
+      width: 100%;
+      margin-right: 150px;
+      filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.35)) brightness(1.05);
     }
     
     .plan-card {
@@ -385,7 +450,6 @@
       transition: opacity 0.5s ease, transform 0.5s ease;
       transform: translateX(30px);
       filter: drop-shadow(0px 15px 10px rgba(0, 0, 0, 0.4));
-
     }
     
     .process-step.active {
@@ -401,10 +465,10 @@
       -webkit-text-fill-color: transparent;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
       filter: drop-shadow(0px 5px 1px rgba(0, 0, 0, 0.61));
-
+    
       line-height: 1;
       display: inline-block;
-      position: relative;      
+      position: relative;
       top: -20px;
     }
     
@@ -472,21 +536,19 @@
       opacity: 0;
       transform: scale(0.8);
     }
-
-
-
-
-
   </style>
 
   <script>
     // Slider
-    const serviceSlides = document.querySelectorAll('.services-slider img')
-    let serviceIndex = 0
+    const slides = document.querySelectorAll('.slide')
+    let index = 0
+    
     setInterval(() => {
-      serviceSlides[serviceIndex].classList.remove('active')
-      serviceIndex = (serviceIndex + 1) % serviceSlides.length
-      serviceSlides[serviceIndex].classList.add('active')
+      slides[index].classList.remove('active')
+    
+      index = (index + 1) % slides.length
+    
+      slides[index].classList.add('active')
     }, 4000)
     
     // Flip cards

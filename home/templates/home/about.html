@@ -13,7 +13,7 @@
     .hero {
       text-align: right;
       min-height: 68vh;
-      background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.831) 45%, rgba(0, 0, 0, 0.831) 100%), url('/mnt/data/656c10d1-0d11-4b31-b83f-16cf128cd633.png');
+      background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.831) 45%, rgba(0, 0, 0, 0.831) 100%), url("{% static 'img/double-lined.png' %}");
       background-size: cover;
       background-position: center;
       display: flex;
@@ -40,11 +40,12 @@
       align-items: flex-start;
     }
     .avatar img {
-      width: 390px;
-      height: 390px;
+      width: 380px;
+      height: 380px;
       border-radius: 50%;
       object-fit: cover;
-      object-position: center 50%;
+      object-position: center 0%;
+      transform: translateX(30px);
       box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
       border: 4px solid rgba(255, 255, 255, 0.06);
       /* انیمیشن شناور دائمی — مثل نفس کشیدن */
@@ -273,7 +274,7 @@
   <section class="hero">
     <div class="hero-inner">
       <div class="avatar">
-        <img src="/static/img/profile23.JPG" alt="عکس من" />
+        <img src="/static/img/profile25.png" alt="عکس من" />
       </div>
 
       <div style="color:#fff">
