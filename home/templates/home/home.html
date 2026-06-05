@@ -19,8 +19,8 @@
             <img src="{% static 'img/slider1.jpg' %}" />
           </div>
 
-          <div class="slide" data-btn-text="نمایش خدمات" data-btn-link="/portfolio/">
-            <img src="{% static 'img/slider2.jpg' %}" />
+          <div class="slide" data-btn-text="نمونه کارها" data-btn-link="/portfolio/">
+            <img src="{% static 'img/slider22.jpg' %}" />
           </div>
 
           <div class="slide" data-btn-text="تماس با ما" data-btn-link="/contact/">
@@ -47,7 +47,7 @@
 
           <!-- دکمه مشترک -->
           <div class="slide-btn-wrapper">
-            <a id="heroBtn" class="btn-primary"></a>
+            <a id="heroBtn" class="btn-primary-slider"></a>
           </div>
         </div>
       </div>
@@ -225,6 +225,24 @@
       transform: translateX(-50%);
       z-index: 3;
     }
+
+    .btn-primary-slider {
+        background: #f4c400;
+        color: #000000;
+        border: none;
+        border-radius: 6px;
+        padding: 10px 22px;
+        box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+    }
+
+    .btn-primary-slider:hover {
+        background: #ffffff;       
+        color: #000;                
+        box-shadow:
+            0 10px 20px rgba(0,0,0,0.25),
+            0 40px 40px rgba(0,0,0,0.15);  
+    }
+
     
     .hero-slider .slide img {
       width: 100%;
