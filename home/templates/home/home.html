@@ -37,12 +37,14 @@
           </div>
 
           <div class="slide" data-btn-text="تماس با ما" data-btn-link="/contact/">
-            <img src="{% static 'img/slider6.jpg' %}" />
+            <img src="{% static 'img/slider7.jpg' %}" />
           </div>
 
           <div class="slide" data-btn-text="تماس با ما" data-btn-link="/contact/">
-            <img src="{% static 'img/slider7.jpg' %}" />
+            <img src="{% static 'img/slider99.jpg' %}" />
           </div>
+
+
 
 
           <!-- دکمه مشترک -->
@@ -118,6 +120,8 @@
       <li class="tm-bg-control" data-id="2"></li>
       <li class="tm-bg-control" data-id="3"></li>
       <li class="tm-bg-control" data-id="4"></li>
+      <li class="tm-bg-control" data-id="5"></li>
+      <li class="tm-bg-control" data-id="6"></li>
     </ul>
   </div> <!-- پایان home-hero -->
 
@@ -227,6 +231,7 @@
     }
 
     .btn-primary-slider {
+      display: none;
         background: #f4c400;
         color: #000000;
         border: none;
@@ -348,15 +353,16 @@
       let introPassed = false
     
       function updateButton(index) {
-        const text = slides[index].dataset.btnText
-        const link = slides[index].dataset.btnLink
-    
+        const text = slides[index].dataset.btnText;
+        const link = slides[index].dataset.btnLink;
+
+        // اگر متن و لینک وجود داشت (یعنی اسلاید اینترو نیست)
         if (text && link) {
-          heroBtn.textContent = text
-          heroBtn.href = link
-          heroBtn.style.display = 'inline-block'
+          heroBtn.textContent = text;
+          heroBtn.href = link;
+          heroBtn.style.display = 'inline-block'; // اینجا دکمه را نشان می‌دهد
         } else {
-          heroBtn.style.display = 'none'
+          heroBtn.style.display = 'none'; // اینجا دکمه را مخفی می‌کند (برای اسلاید اول)
         }
       }
     
