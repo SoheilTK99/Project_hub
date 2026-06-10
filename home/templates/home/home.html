@@ -24,9 +24,12 @@
           </div>
 
           <div class="slide" data-btn-text="تماس با ما" data-btn-link="/contact/">
-            <img src="{% static 'img/slider3.jpg' %}" />
+            <img src="{% static 'img/slider10.jpg' %}" />
           </div>
 
+          <div class="slide" data-btn-text="تماس با ما" data-btn-link="/contact/">
+            <img src="{% static 'img/slider3.jpg' %}" />
+          </div>
 
           <div class="slide" data-btn-text="تماس با ما" data-btn-link="/contact/">
             <img src="{% static 'img/slider8.jpg' %}" />
@@ -43,9 +46,6 @@
           <div class="slide" data-btn-text="تماس با ما" data-btn-link="/contact/">
             <img src="{% static 'img/slider99.jpg' %}" />
           </div>
-
-
-
 
           <!-- دکمه مشترک -->
           <div class="slide-btn-wrapper">
@@ -230,25 +230,22 @@
       transform: translateX(-50%);
       z-index: 3;
     }
-
+    
     .btn-primary-slider {
       display: none;
-        background: #f4c400;
-        color: #000000;
-        border: none;
-        border-radius: 6px;
-        padding: 10px 22px;
-        box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+      background: #f4c400;
+      color: #000000;
+      border: none;
+      border-radius: 6px;
+      padding: 10px 22px;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
     }
-
+    
     .btn-primary-slider:hover {
-        background: #ffffff;       
-        color: #000;                
-        box-shadow:
-            0 10px 20px rgba(0,0,0,0.25),
-            0 40px 40px rgba(0,0,0,0.15);  
+      background: #ffffff;
+      color: #000;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25), 0 40px 40px rgba(0, 0, 0, 0.15);
     }
-
     
     .hero-slider .slide img {
       width: 100%;
@@ -354,16 +351,16 @@
       let introPassed = false
     
       function updateButton(index) {
-        const text = slides[index].dataset.btnText;
-        const link = slides[index].dataset.btnLink;
-
+        const text = slides[index].dataset.btnText
+        const link = slides[index].dataset.btnLink
+    
         // اگر متن و لینک وجود داشت (یعنی اسلاید اینترو نیست)
         if (text && link) {
-          heroBtn.textContent = text;
-          heroBtn.href = link;
-          heroBtn.style.display = 'inline-block'; // اینجا دکمه را نشان می‌دهد
+          heroBtn.textContent = text
+          heroBtn.href = link
+          heroBtn.style.display = 'inline-block' // اینجا دکمه را نشان می‌دهد
         } else {
-          heroBtn.style.display = 'none'; // اینجا دکمه را مخفی می‌کند (برای اسلاید اول)
+          heroBtn.style.display = 'none' // اینجا دکمه را مخفی می‌کند (برای اسلاید اول)
         }
       }
     
