@@ -32,8 +32,8 @@
       padding: 25px;
       margin-bottom: 15px;
     }
-
-    .srv-d-hero-2{
+    
+    .srv-d-hero-2 {
       display: grid;
       gap: 24px;
       background: linear-gradient(180deg, #101722, #0c1118);
@@ -42,8 +42,7 @@
       padding: 8px;
       margin-bottom: 15px;
     }
-
-
+    
     @media (max-width: 900px) {
       .srv-d-hero {
         grid-template-columns: 1fr;
@@ -174,14 +173,32 @@
       border-radius: 10px;
       cursor: pointer;
     }
+    /* استایل اصلی دکمه */
+    .btn.btn-primary {
+      background: #ffffff;
+      color: #000000;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+      width: 410px;
+      display: block; /* برای اینکه margin-inline auto کار کند */
+      margin: 15px auto; /* وسط‌چین کردن با margin auto */
+      padding: 12px 0;
+      text-align: center;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: all 0.3s ease; /* برای نرم شدن تغییرات */
+    }
     
-
+    /* استایل حالت هاور */
+    .btn.btn-primary:hover {
+      background: #f4c400; /* زرد */
+      color: #000;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+      transform: translateY(-2px); /* کمی می‌پره بالا که حس دکمه بودن بده */
+    }
   </style>
 
   <div class="srv-d-wrap">
     <div class="srv-d-container">
-
-
       <!-- گالری تصاویر (فقط یک سوییپر) -->
       <section class="srv-d-hero-2">
         {% if images %}
@@ -189,7 +206,7 @@
             <div class="swiper-wrapper">
               {% for img in images %}
                 <div class="swiper-slide">
-                  <img src="{{ img.url }}" alt="{{ portfolio.name }} - {{ forloop.counter }}" loading="lazy">
+                  <img src="{{ img.url }}" alt="{{ portfolio.name }} - {{ forloop.counter }}" loading="lazy" />
                 </div>
               {% endfor %}
             </div>
@@ -200,12 +217,8 @@
         {% endif %}
       </section>
 
-
-
       <!-- هرو: پوستر + اطلاعات اصلی -->
       <section class="srv-d-hero">
-
-
         <div>
           <div class="srv-d-title-row">
             <h1 class="srv-d-title">{{ portfolio.name }}</h1>
@@ -225,8 +238,6 @@
               </div>
             {% endif %}
 
-
-
             {% if portfolio.frontend %}
               <div class="it">
                 <span class="k">فرانت‌اند</span>{{ portfolio.frontend }}
@@ -238,10 +249,10 @@
               </div>
             {% endif %}
             {% if portfolio.pages %}
-            <div class="it">
-              <span class="k">تعداد صفحات</span>{{ portfolio.pages }}
-            </div>
-            {% endif %} 
+              <div class="it">
+                <span class="k">تعداد صفحات</span>{{ portfolio.pages }}
+              </div>
+            {% endif %}
             {% if portfolio.delivery_time %}
               <div class="it">
                 <span class="k">زمان تحویل</span>{{ portfolio.delivery_time }}
@@ -251,7 +262,7 @@
               <div class="it">
                 <span class="k">PageSpeed</span>{{ portfolio.pagespeed }}
               </div>
-            {% endif %}                                   
+            {% endif %}
             {% if portfolio.hosting %}
               <div class="it">
                 <span class="k">هاستینگ</span>{{ portfolio.hosting }}
@@ -269,7 +280,7 @@
             {% endif %}
             {% if portfolio.media_management_system %}
               <div class="it">
-                <span class="k"> سیستم مدیریت محتوا</span>{{ portfolio.media_management_system }}
+                <span class="k">سیستم مدیریت محتوا</span>{{ portfolio.media_management_system }}
               </div>
             {% endif %}
 
@@ -277,28 +288,21 @@
               <div class="it">
                 <span class="k">دستگاه های هدف</span>{{ portfolio.target_devices }}
               </div>
-            {% endif %}  
+            {% endif %}
             {% if portfolio.language %}
               <div class="it">
                 <span class="k">زبان</span>{{ portfolio.language }}
               </div>
-            {% endif %}            
-            
+            {% endif %}
 
-
-
-
-            {% if portfolio.link %}
-              <div class="it" style= "font-size: 17px; font-weight: 400;">
+            {% if portfolio.site_type == 'functional' and portfolio.link %}
+              <div class="it" style="font-size: 17px; font-weight: 400;">
                 <span class="k">لینک</span>
                 <a href="https://{{ portfolio.link }}" target="_blank" rel="noopener" style="color:#9ec5ff">{{ portfolio.link }}</a>
               </div>
             {% endif %}
-            
-
-
           </div>
-          <br>
+          <br />
           {% if portfolio.long_discription %}
             <div class="srv-d-long">{{ portfolio.long_discription }}</div>
           {% endif %}
@@ -309,29 +313,13 @@
           <span></span>
           <span></span>
           <span></span>
-          <br>
-          
-          <a href="https://{{ portfolio.link }}" class="btn btn-primary" 
-          style="
-          width: 410px;
-          margin-bottom: 15px;
-          margin-top: 15px;
-          margin-right: 420px;
-          border-radius: 10px;
+          <br />
 
-            ">مشاهده آنلاین</a>
-
+          {% if portfolio.site_type == 'functional' and portfolio.link %}
+            <a href="https://{{ portfolio.link }}" class="btn btn-primary">مشاهده آنلاین</a>
+          {% endif %}
         </div>
       </section>
-
-      
-      
-
-
-
-
-   
-
     </div>
   </div>
 
@@ -359,7 +347,6 @@
     })()
   </script>
 
-
   <script>
     /* --- Swiper ------------------------------------------------------------ */
     document.addEventListener('DOMContentLoaded', function () {
@@ -375,39 +362,38 @@
         navigation: {
           nextEl: '.mySwiper .swiper-button-next',
           prevEl: '.mySwiper .swiper-button-prev'
-        },
+        }
         // اگر RTL می‌خوای و بدنه سایت RTL هست:
         // rtl: true  // نسخه‌های جدید نیاز ندارند؛ جهت را از CSS می‌گیرند
-      });
-    });
+      })
+    })
   </script>
 
   <style>
     /* اندازهٔ ظرف اسلایدر */
-    .mySwiper { width: 100%; height: 100%; }
-
-    /* تصویر داخل اسلاید */
+    .mySwiper {
+      width: 100%;
+      /* حتما یک ارتفاع مشخص برای اسلایدر تعیین کنید */
+      height: 600px;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    
     .mySwiper .swiper-slide img {
       width: 100%;
       height: 100%;
-      object-fit: cover; /* اگه نسبت تصاویر متفاوته، خوب جواب می‌ده */
+      /* بهترین گزینه برای اینکه عکس‌ها کشیده نشوند و فضا را پر کنند */
+      object-fit: cover;
+      /* برای اینکه فوکوس اصلی عکس همیشه در مرکز باشد */
+      object-position: center;
       display: block;
-      border-radius: 16px;
     }
-
-
-
+    
     .mySwiper .swiper-pagination-bullet {
-        background: #ff3f3fff !important;  /* خاکستری روشن */
-
+      background: #ff3f3fff !important; /* خاکستری روشن */
     }
     .mySwiper .swiper-pagination-bullet-active {
-        background: #ff0000ff !important;  /* آبی روشن */
-    
+      background: #ff0000ff !important; /* آبی روشن */
     }
-
-    
-
   </style>
-
 {% endblock %}
